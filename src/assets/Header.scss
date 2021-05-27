@@ -1,0 +1,43 @@
+header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100vw;
+    height: 5vh;
+    .hamburguer{
+        width: 35px;
+        height: 35px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .hamburguer:first-child {
+            width: 5px;
+            height: 3px;
+            margin: 3px;
+        }
+        .close{
+            width: 25px;
+            height: 3px;
+            background: #333;
+            margin: 3px;
+        }
+        .open{
+            width: 25px;
+            height: 3px;
+            background-color:#333;
+            margin: 3px;
+        }
+    }
+    
+    .header__logo{
+        padding: 5px 18px ;
+        background-color: black;
+        p{
+            color: #f1f1f1;
+            font-weight: 800;
+            text-align: center;
+        }
+    }
+
+}
