@@ -1,32 +1,47 @@
 header {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     width: 100vw;
     height: 5vh;
+    padding: 0 5%;
     .hamburguer{
+      
         width: 35px;
         height: 35px;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        .hamburguer:first-child {
-            width: 5px;
-            height: 3px;
-            margin: 3px;
-        }
-        .close{
+        z-index:100;
+        cursor: pointer;
+
+        i{
             width: 25px;
             height: 3px;
-            background: #333;
+            background: gray;
             margin: 3px;
+            border-radius: 8px;
         }
-        .open{
-            width: 25px;
-            height: 3px;
-            background-color:#333;
-            margin: 3px;
+        .close:nth-child(1){
+            transform: rotate(0) translateY(0);
+        }
+        
+        .close:nth-child(2){
+            opacity: 1;
+        }
+        .close:nth-child(3){
+            transform: rotate(0) translateY(0);
+        }
+
+        .open:nth-child(1){
+            transform: rotate(45deg)translateY(12px);
+        }
+        .open:nth-child(2){
+            opacity: 0;
+        }
+        .open:nth-child(3){
+            transform: rotate(-45deg) translateY(-12px);
         }
     }
     
@@ -40,4 +55,45 @@ header {
         }
     }
 
+    .menu_item{
+        position:fixed;
+        background: #333;
+        color: #f1f1f1;
+        display: none;
+        width: 100vw;
+        height: 100vh;
+        list-style: none;
+        z-index: 10;
+        .expanded{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+        .menu_item-link{
+            opacity: 0;
+        }
+
+        .menu_item .menu_item_link:nth-child(1){
+            transition: all 0.5 ease-in 0.4s;
+        }
+        .menu_item .menu_item_link:nth-child(2){
+            transition: all 0.5 ease-in 0.6s;
+        }
+        .menu_item .menu_item_link:nth-child(3){
+            transition: all 0.5 ease-in 0.8s;
+        }
+        .menu_item .menu_item_link:nth-child(4){
+            transition: all 0.5 ease-in 1s;
+        }
+        .menu_item .menu_item_link:nth-child(5){
+            transition: all 0.5 ease-in 1.2s;
+        }
+        .menu_item_link .fade{
+            opacity: 1;
+        }
+    }
+
+    
+    
 }

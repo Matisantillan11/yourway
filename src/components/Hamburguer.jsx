@@ -1,16 +1,13 @@
-import { useState } from "react"
 
-const Hamburguer = () =>{
-    const [state, setState] = useState('open')
-    const handleState = () =>{
-        state === 'open' ? setState('close') : setState('open')        
-    }
+
+const Hamburguer = ( {status, handleState} ) =>{
+ 
     return (
         <>
-        <div className="hamburguer" onClick={()=>handleState()}>
-            <i className={state}></i>
-            <i className={state}></i>
-            <i className={state}></i>
+        <div className="hamburguer" onClick={handleState}>
+            <i className={status}></i>
+            <i className={status}></i>
+            <i className={status}></i>
         </div>
         </>
     )

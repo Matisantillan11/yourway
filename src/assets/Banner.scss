@@ -1,9 +1,30 @@
 .banner__container{
     height: auto;
-    padding-top: 150px;
+    padding-top: 15% 0;
     .banner{
+        position: relative;
         width: 100%;
         min-height: 275px;
-        border: 1px solid red;
+        max-height: 450px;
+        img{
+            width: 100%;
+            min-height: 275px;
+            max-height: 450px;
+            height: 100%;
+            object-fit: cover;
+            margin: 0;
+        }
+        .banner_category{
+            position:absolute;
+            padding: 10px 36px ;
+            background-color: #252424b0;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            p{
+                color: #f1f1f1;
+                font-size: 25px;
+            }
+        }
     }
 }

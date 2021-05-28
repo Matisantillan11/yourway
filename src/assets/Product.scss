@@ -19,7 +19,13 @@
             max-width: 320px;
             min-height: 150px;
             height: 70%;
-            //background-image: url("../images/Product1.png");
+            img{
+            min-width: 185px;
+            width: 50%;
+            max-width: 320px;
+            min-height: 150px;
+            height: 70%;
+            }
         }
         .product_card-main{
             display: flex;
@@ -45,6 +51,7 @@
             border: 1px solid blue;
             border-radius: 8px;
             margin: 0 auto 5% auto;
+            outline: none;
         }
     }
 }

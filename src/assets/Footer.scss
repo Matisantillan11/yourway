@@ -1,8 +1,54 @@
+:root{
+    --gradient: linear-gradient(right, #f6b4cf, #fff7a4, #98d1ef);
+}
 footer{
+    
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
     bottom: 0;
     left: 0;
     width: 100vw;
     height: 30vh;
     background : #333;
     color: #f1f1f1;
+    .header__logo{
+        padding: 5px 18px ;
+        background-color: black;
+        p{
+            font-size: 18px;
+            color: #f1f1f1;
+            font-weight: 800;
+            text-align: center;
+        }
+    }
+    .menu__items-container{
+        text-align: center;
+        margin: 2.5% 0;
+        p{
+            font-size: 14px;
+            margin: 8% 0 0 0;
+        }
+    }
+    .icons__container{
+        min-width: 150px;
+        display:flex;
+        justify-content: space-around;
+        align-items: center;
+        .icons_icon-container{
+            padding: 4%;
+            margin: 0 5%;
+            border: 2px solid white;
+            border-radius: 50%;
+        }
+        a{
+            font-size: 18px;
+            color:#f1f1f1;
+        }
+    }
+
+    p{
+        font-size: 12px;
+    }
 }
