@@ -1,8 +1,7 @@
-:root{
-    --gradient: linear-gradient(right, #f6b4cf, #fff7a4, #98d1ef);
-}
+@import url('../index.scss');
+
 footer{
-    
+   
     display:flex;
     flex-direction: column;
     justify-content: space-around;
@@ -11,14 +10,14 @@ footer{
     left: 0;
     width: 100vw;
     height: 30vh;
-    background : #333;
-    color: #f1f1f1;
+    background : var(--dark-gray);
+    color: var(--soft-white);
     .header__logo{
         padding: 5px 18px ;
         background-color: black;
         p{
             font-size: 18px;
-            color: #f1f1f1;
+            color: var(--soft-white);
             font-weight: 800;
             text-align: center;
         }
@@ -39,12 +38,13 @@ footer{
         .icons_icon-container{
             padding: 4%;
             margin: 0 5%;
-            border: 2px solid white;
+            border: 2px solid var(--soft-white);
             border-radius: 50%;
+            
         }
         a{
             font-size: 18px;
-            color:#f1f1f1;
+            color:var(--soft-white);
         }
     }
 

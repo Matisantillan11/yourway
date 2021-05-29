@@ -32,17 +32,20 @@
         .product_page-title{
             font-size: 25px;
             font-weight: 500;
-            color: #7c7979;
+            color: var(--medium-gray);
             margin-bottom: 5px;
         }
         .product_page-price{
             font-size: 28px;
             font-weight: 500;
-            color: #3AC7D3;
+            color: var(--light-blue);
             margin-bottom: 5px;
         }
         .product_page-quantity-container{
             margin: 5% 0;
+            
+            min-width: 80px;
+            max-width: 100px;
             .product_page-quantity-label{
                 font-size: 12px;
                 font-weight: 100;
@@ -51,8 +54,10 @@
             .product_page-quantity{
                 min-width: 50px;
                 width: 30%;
-                max-width: 100px;
-                padding: 2.5% ;
+                max-width: 80px;
+                min-height: 40px;
+                max-height: 60px;
+                padding: 5% ;
                 outline: none;
             }
         }
@@ -60,12 +65,12 @@
     }
     
     .product_card-add-to-cart{
-        background-color: #333;
-        color: #f1f1f1;
+        background-color: var(--dark-gray);
+        color: var(--soft-white);
         width: 65%;
-        margin: 0 18% 15% 18%;
+        margin: 2.5% 18% 2.5% 18%;
         padding: 12px 0px;
-        border: 1px solid #333;
+        border: 1px solid var(--dark-gray);
         border-radius: 8px;
         outline: none;
         

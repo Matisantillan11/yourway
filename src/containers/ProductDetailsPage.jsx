@@ -1,9 +1,17 @@
+//hooks
+import {useHistory} from 'react-router-dom'
 //styles
 import '../assets/ProductPage.scss';
 //images
 import Product1 from '../assets/images/product1.png';
 
-const ProductPage = () =>{
+const ProductDetailsPage = () =>{
+    const history = useHistory()
+
+    const handleBuy = (e) =>{
+        e.preventDefault();
+        history.push("/products/checkout");
+    }
     return (
         <>
         <div className="product_description">
@@ -21,9 +29,10 @@ const ProductPage = () =>{
             </div>
 
             <button className="product_card-add-to-cart">Agregar al carrito</button>
+            <button className="product_card-add-to-cart" onClick={handleBuy}>Comprar</button>
         </div>
         </>
     )
 }
 
-export default ProductPage
+export default ProductDetailsPage

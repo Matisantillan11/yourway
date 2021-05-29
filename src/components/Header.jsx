@@ -32,7 +32,7 @@ const Header = () => {
                 <li className="menu_item_link"><a href=""></a>Contact Us</li>
                 <li className="menu_item_link"><a href=""></a>Ingresar</li>
             </ul>
-            <i className="fas fa-shopping-cart 3x"></i>
+            <i className="fas fa-shopping-cart"></i>
         </header>
         </>
     )

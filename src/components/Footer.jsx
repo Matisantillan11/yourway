@@ -1,4 +1,5 @@
 //styles
+import { Link } from 'react-router-dom'
 import '../assets/Footer.scss'
 const Footer = ( {children} ) =>{
     return(
@@ -9,8 +10,8 @@ const Footer = ( {children} ) =>{
                 <p>Your Way</p>
             </div>
             <div className="menu__items-container">
-                <p>Home</p>
-                <p>Products</p>
+                <p><Link className="link" to="/">Home</Link></p>
+                <p><Link className="link" to="/products">Products</Link></p>
                 <p>About Us</p>
                 <p>Contact Us</p>
             </div>

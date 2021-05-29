@@ -1,3 +1,5 @@
+@import url('../index.scss');
+
 .products_container{
     height: auto;
     margin: 15% 0;
@@ -46,9 +48,9 @@
 
         .product_card-add-to-cart{
             background-color: transparent;
-            color: #333;
+            color: var(--dark-gray);
             padding: 8px 16px;
-            border: 1px solid blue;
+            border: 2px solid var(--medium-blue);
             border-radius: 8px;
             margin: 0 auto 5% auto;
             outline: none;

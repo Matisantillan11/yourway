@@ -10,7 +10,7 @@ const Product = () =>{
 
     const ToProducts = (e) =>{
         e.preventDefault();
-        history.push("/products")
+        history.push("/products/details")
     }
 
     return(

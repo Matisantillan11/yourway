@@ -1,3 +1,5 @@
+@import url('../index.scss');
+
 .banner__container{
     height: auto;
     padding-top: 15% 0;
@@ -22,8 +24,12 @@
             left: 50%;
             transform: translate(-50%, -50%);
             p{
-                color: #f1f1f1;
+                background: -webkit-linear-gradient(-45deg, var(--soft-pink) 25%, var(--soft-yellow) 20%, var(--soft-blue) 100%);
+                background-size: 100%;
                 font-size: 25px;
+                background-clip: text;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
             }
         }
     }

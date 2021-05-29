@@ -1,3 +1,5 @@
+@import url('../index.scss');
+
 header {
     display: flex;
     justify-content: space-between;
@@ -19,7 +21,7 @@ header {
         i{
             width: 25px;
             height: 3px;
-            background: gray;
+            background:var(--medium-gray);
             margin: 3px;
             border-radius: 8px;
         }
@@ -49,7 +51,7 @@ header {
         padding: 5px 18px ;
         background-color: black;
         p{
-            color: #f1f1f1;
+            color: var(--soft-white);
             font-weight: 800;
             text-align: center;
         }
@@ -57,7 +59,7 @@ header {
 
     .menu_item{
         position:fixed;
-        background: #333;
+        background: var(--dark-gray);
         color: #f1f1f1;
         display: none;
         width: 100vw;
@@ -93,7 +95,5 @@ header {
             opacity: 1;
         }
     }
-
-    
     
 }

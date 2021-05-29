@@ -1,0 +1,67 @@
+@import url('../index.scss');
+
+.Checkout {
+   display:flex;
+   flex-direction: column;
+   justify-content: left;
+   align-items: left;
+   padding: 5%;
+   margin: 10% 0;
+   min-height: 60vh;
+    .Checkout-content{
+        .Checkout-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 10px 0 ;
+            .Checkout-element {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width: 100%;
+                border-bottom: 1px solid var(--soft-white);
+                h4 {
+                    margin: 0;
+                    font-weight: 300;
+                }
+            }
+            .fas {
+                margin: 0 0 0 10px;
+                color: var(--dark-gray);
+                cursor: pointer;
+            }
+            button {
+                background-color: transparent;
+                border: none;
+                outline: none;
+            }
+          }
+    }
+    .Checkout-sidebar {
+        margin: 5% 0;
+        h3{
+            font-weight: 300;
+            span{
+                font-weight: 700;
+            }
+        }
+        button {
+            box-shadow: inset 0px 1px 0px 0px var(--light-blue);
+              background: var(--dark-gray);
+              border-radius: 6px;
+              display: inline-block;
+              cursor: pointer;             
+              padding: 10px 24px;
+              width: 70%;
+              margin: 5% auto;
+              display: block;
+              outline: none;
+              .link{
+                color: var(--soft-white);
+                font-size: 15px;
+                font-weight: bold;
+              }
+        }
+        
+    }
+  }
