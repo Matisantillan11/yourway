@@ -19,7 +19,7 @@ const Checkout = () => {
           <div className="Checkout-sidebar">
             <h3>Precio Total: <span>$3600</span></h3>
             <button type="button">
-              <Link className="link"to="/"> Continuar </Link>
+              <Link className="link"to="/products/checkout/information"> Continuar </Link>
             </button>
           </div>
         </div>

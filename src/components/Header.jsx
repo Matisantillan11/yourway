@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-
+import { Link } from 'react-router-dom'
 //components
 import Hamburguer from '../components/Hamburguer'
 
@@ -18,7 +18,7 @@ const Header = () => {
         firebase.auth().onAuthStateChanged(user =>{
             const logBtn = document.getElementById('logButton');
             if(user){
-                console.log(user.displayName);
+            
                 logBtn.innerText = "Salir";
                 logBtn.onclick = LogOut;
             } else {
@@ -46,11 +46,13 @@ const Header = () => {
                 <p>Your Way</p>
             </div>
             <ul className="menu_item" status={state} id="menu">
-                <li className="menu_item_link"><a href=""></a>Home</li>
-                <li className="menu_item_link"><a href=""></a>Products</li>
-                <li className="menu_item_link"><a href=""></a>About Us</li>
-                <li className="menu_item_link"><a href=""></a>Contact Us</li>
-                <li className="menu_item_link" id="logButton"onClick={() => Google()}>Ingresar</li>
+                <li className="menu_item_link" id="logButton">Ingresar</li>
+                <li className="menu_item_link"><Link className="link-menu" to="/">Inicio</Link></li>
+                <li className="menu_item_link"><Link className="link-menu"to="/products">Productos</Link></li>
+                <li className="menu_item_link"><a className="link-menu" href=""></a>Nosotros</li>
+                <li className="menu_item_link"><a className="link-menu" href=""></a>Contactanos</li>
+                <li className="menu_item_link"><a className="link-menu" href=""></a>Terminos y condiciones</li>
+                <li className="menu_item_link"><a className="link-menu" href=""></a>Politicas de privacidad</li>
             </ul>
             <i className="fas fa-shopping-cart"></i>
         </header>

@@ -1,0 +1,92 @@
+@import url('../index.scss');
+
+.Information {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: left;
+    min-height: 65vh;
+    padding: 5%;
+  }
+  .Information-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .Information-sidebar {
+    margin: 10px 0 0 0;
+  }
+  .Information-back {
+    margin: 10px 0 0 0;
+  }
+  .Information-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .Information-item .fas {
+    margin: 0 0 0 10px;
+    color: rgba(0,0,0,0.4);
+    cursor: pointer;
+  }
+  .Information-item button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+  }
+  .Information-element {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    border-bottom: 1px solid var(--soft-white);
+  }
+  .Information-element h4 {
+    font-size: 18px;
+  }
+  h2 {
+    margin: 0 0 8px 0;
+    padding: 0;
+    font-size: 22px;
+  }
+  h3 {
+    font-size: 20px;
+    margin: 0 0 8px 0;
+    padding: 0;
+  }
+  input {
+    background-color: #fff;
+    background-image: none;
+    border-radius: 4px;
+    border: 1px solid #d9d9d9;
+    color: gray;
+    display: inline-block;
+    font-feature-settings: "tnum";
+    font-size: 14px;
+    height: 32px;
+    line-height: 32px;
+    list-style: none;
+    margin: 0 0 8px 0;
+    outline: 0;
+    padding: 4px 12px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .Information-buttons {
+    margin: 10px 0 0 ;
+  }
+  .Information button {
+      background: var(--dark-gray);
+      border-radius: 6px;
+      border: none;
+      display: inline-block;
+      cursor: pointer;
+      color: var(--soft-white);
+      font-size: 15px;
+      font-weight: bold;
+      padding: 6px 24px;
+      text-decoration: none;
+      width: 100%;
+      display: block;
+      outline: none;
+  }

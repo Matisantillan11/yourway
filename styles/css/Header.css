@@ -85,7 +85,7 @@ header .header__logo p {
 header .menu_item {
   position: fixed;
   background: var(--dark-gray);
-  color: #f1f1f1;
+  color: var(--soft-white);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -93,63 +93,43 @@ header .menu_item {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   top: 0;
   left: 0;
   width: 0vw;
-  min-height: 100vh;
+  height: 100vh;
   list-style: none;
   z-index: 99;
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
 }
 
-header .menu_item .menu_item-link a {
+header .menu_item .menu_item_link {
+  font-size: 18px;
   display: none;
 }
 
-header .menu_item .menu_item .menu_item_link:nth-child(1) {
-  -webkit-transition: all 0.5 ease-in 0.4s;
-  transition: all 0.5 ease-in 0.4s;
-}
-
-header .menu_item .menu_item .menu_item_link:nth-child(2) {
-  -webkit-transition: all 0.5 ease-in 0.6s;
-  transition: all 0.5 ease-in 0.6s;
-}
-
-header .menu_item .menu_item .menu_item_link:nth-child(3) {
-  -webkit-transition: all 0.5 ease-in 0.8s;
-  transition: all 0.5 ease-in 0.8s;
-}
-
-header .menu_item .menu_item .menu_item_link:nth-child(4) {
-  -webkit-transition: all 0.5 ease-in 1s;
-  transition: all 0.5 ease-in 1s;
-}
-
-header .menu_item .menu_item .menu_item_link:nth-child(5) {
-  -webkit-transition: all 0.5 ease-in 1.2s;
-  transition: all 0.5 ease-in 1.2s;
-}
-
-header .menu_item .menu_item_link .fade {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+header .menu_item .menu_item_link .link-menu {
+  text-decoration: none;
+  display: none;
 }
 
 header .menu_item.expanded {
   width: 100vw;
+}
+
+header .menu_item.expanded .menu_item_link {
+  display: block;
+  color: var(--soft-white);
+}
+
+header .menu_item.expanded .menu_item_link .link-menu {
+  display: block;
+  color: var(--soft-white);
 }
 /*# sourceMappingURL=Header.css.map */
