@@ -1,0 +1,96 @@
+@import url("../index.scss");
+.Checkout {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+  -webkit-box-align: left;
+      -ms-flex-align: left;
+          align-items: left;
+  padding: 5%;
+  margin: 10% 0;
+  min-height: 60vh;
+}
+
+.Checkout .Checkout-content .Checkout-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 10px 0;
+}
+
+.Checkout .Checkout-content .Checkout-item .Checkout-element {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  border-bottom: 1px solid var(--soft-white);
+}
+
+.Checkout .Checkout-content .Checkout-item .Checkout-element h4 {
+  margin: 0;
+  font-weight: 300;
+}
+
+.Checkout .Checkout-content .Checkout-item .fas {
+  margin: 0 0 0 10px;
+  color: var(--dark-gray);
+  cursor: pointer;
+}
+
+.Checkout .Checkout-content .Checkout-item button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+
+.Checkout .Checkout-sidebar {
+  margin: 5% 0;
+}
+
+.Checkout .Checkout-sidebar h3 {
+  font-weight: 300;
+}
+
+.Checkout .Checkout-sidebar h3 span {
+  font-weight: 700;
+}
+
+.Checkout .Checkout-sidebar button {
+  -webkit-box-shadow: inset 0px 1px 0px 0px var(--light-blue);
+          box-shadow: inset 0px 1px 0px 0px var(--light-blue);
+  background: var(--dark-gray);
+  border-radius: 6px;
+  display: inline-block;
+  cursor: pointer;
+  padding: 10px 24px;
+  width: 70%;
+  margin: 5% auto;
+  display: block;
+  outline: none;
+}
+
+.Checkout .Checkout-sidebar button .link {
+  color: var(--soft-white);
+  font-size: 15px;
+  font-weight: bold;
+}
+/*# sourceMappingURL=Checkout.css.map */

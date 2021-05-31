@@ -24,6 +24,7 @@
     width: 100vw;
     height: auto;
     min-height: 100vh;
+    overflow-x: hidden;
     .link{
         text-decoration: none;
         color: var(--soft-white);
