@@ -1,24 +1,26 @@
-import { useState, useEffect } from "react"
-import { Link } from 'react-router-dom'
+import { useState, useEffect, useContext } from "react";
+import { Link } from 'react-router-dom';
 //components
-import Hamburguer from '../components/Hamburguer'
+import Hamburguer from '../components/Hamburguer';
+import AppContext from '../context/AppContext.js';
 
 //firebase
 import firebase from 'firebase/app'
 import 'firebase/auth'
+import Methods from "../firebase/Authentication/methods.js";
 //styles
 import '../assets/Header.scss'
-import Methods from "../firebase/Authentication/methods.js";
 
 const Header = () => {
     const [state, setState] = useState('close')
     const { Google, LogOut } = Methods();
     
+    const { buyer } = useContext(AppContext);
     useEffect(()=>{
         firebase.auth().onAuthStateChanged(user =>{
             const logBtn = document.getElementById('logButton');
             if(user){
-            
+                
                 logBtn.innerText = "Salir";
                 logBtn.onclick = LogOut;
             } else {
@@ -26,7 +28,7 @@ const Header = () => {
                 logBtn.onclick = Google;
             }
         })
-    })
+    }, [])
 
     const handleMenu = (ev) =>{
         ev.preventDefault();
@@ -51,8 +53,6 @@ const Header = () => {
                 <li className="menu_item_link"><Link className="link-menu"to="/products">Productos</Link></li>
                 <li className="menu_item_link"><a className="link-menu" href=""></a>Nosotros</li>
                 <li className="menu_item_link"><a className="link-menu" href=""></a>Contactanos</li>
-                <li className="menu_item_link"><a className="link-menu" href=""></a>Terminos y condiciones</li>
-                <li className="menu_item_link"><a className="link-menu" href=""></a>Politicas de privacidad</li>
             </ul>
             <i className="fas fa-shopping-cart"></i>
         </header>

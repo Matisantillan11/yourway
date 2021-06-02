@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom'
 import '../assets/Product.scss'
 //images
 import Product1 from '../assets/images/product1.png'
-const Product = () =>{
+const Product = ({ product }) =>{
     const history = useHistory()
 
     const ToProducts = (e) =>{
@@ -13,13 +13,15 @@ const Product = () =>{
         history.push("/products/details")
     }
 
+    
+
     return(
         <>
         <div className="product_card" onClick = {ToProducts} >
-            <div className="product_card-img"><img src={Product1} alt="" /></div>
+            <div className="product_card-img"><img src={Product1} alt={product.name}/></div>
             <div className="product_card-main">
-                <p className="product_card-title">Buzo Thrasher</p>
-                <p className="product_card-price">$3600</p>
+                <p className="product_card-title">{product.info.name}</p>
+                <p className="product_card-price">${product.info.price}</p>
                 <button className="product_card-add-to-cart">Agregar al carrito</button>
             </div>
         </div>
