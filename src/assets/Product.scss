@@ -1,7 +1,7 @@
 @import url('../index.scss');
 
 .products_container{
-    height: auto;
+    min-height: 60vh;
     margin: 15% 0;
     display: flex;
     justify-content: center;
@@ -23,11 +23,11 @@
             height: 70%;
             img{
             min-width: 185px;
-            width: 50%;
+            width: 100%;
             max-width: 320px;
             min-height: 150px;
-            height: 70%;
-            object-position: 0%;
+            height: 100%;
+            
             }
         }
         .product_card-main{
