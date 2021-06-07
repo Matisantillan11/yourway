@@ -20,23 +20,37 @@ const useInitialState = () => {
         snapshot.forEach((product) => {
           products = [...products, { info: product.data(), id: product.id }];
         });
-        console.log(products);
         setProducts(products);
       }
     });
   }, []);
 
-  const addToCart = (payload) => {
-    setState({ ...state, cart: [...state.cart, payload] });
+  const addToCart = (payload, id, quantity = 1) => {
+    const isInCart = state.cart.find((i) => i.id == id);
+    if (isInCart) {
+      return state.cart.map((i) =>
+        i.id === id
+          ? setState({
+              cart: [
+                ...state.cart.slice(state.cart.indexOf(i.id) - 1, 1),
+                {
+                  ...i,
+                  quantity: i.quantity + 1,
+                },
+              ],
+            })
+          : i
+      );
+    }
+
+    setState({
+      cart: [...state.cart, { product: payload, id, quantity }],
+    });
   };
 
   const removeFromCart = (payload) => {};
 
-  const addBuyer = (payload) => {
-    setState({ ...state, buyer: [...state.buyer, payload] });
-  };
-
-  return { addToCart, removeFromCart, addBuyer, state, products };
+  return { addToCart, removeFromCart, state, products };
 };
 
 export default useInitialState;

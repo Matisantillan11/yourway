@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect, useContext, useMemo } from "react";
 import { Link } from 'react-router-dom';
 //components
 import Hamburguer from '../components/Hamburguer';
@@ -15,12 +15,10 @@ const Header = () => {
     const [state, setState] = useState('close')
     const { Google, LogOut } = Methods();
     
-    const { buyer } = useContext(AppContext);
     useEffect(()=>{
         firebase.auth().onAuthStateChanged(user =>{
             const logBtn = document.getElementById('logButton');
             if(user){
-                
                 logBtn.innerText = "Salir";
                 logBtn.onclick = LogOut;
             } else {
@@ -29,6 +27,8 @@ const Header = () => {
             }
         })
     }, [])
+
+   
 
     const handleMenu = (ev) =>{
         ev.preventDefault();
@@ -55,6 +55,7 @@ const Header = () => {
                 <li className="menu_item_link"><a className="link-menu" href=""></a>Contactanos</li>
             </ul>
             <i className="fas fa-shopping-cart"></i>
+            
         </header>
         </>
     )
