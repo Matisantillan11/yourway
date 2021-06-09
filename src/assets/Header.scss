@@ -1,13 +1,15 @@
 @import url('../index.scss');
 
 header {
-  position: relative;
+  position: fixed;
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100vw;
   height: 5vh;
   padding: 0 5%;
+  z-index: 300;
+  background-color: var(--soft-white);
   .hamburguer {
     width: 35px;
     height: 35px;
@@ -100,8 +102,8 @@ header {
     justify-content: flex-end;
     align-items: center;
     padding: 2.5%;
-    min-width: 50px;
-    max-width: 70px;
+    min-width: 25px;
+    max-width: 50px;
     height: 100%;
     max-height: 50px;
     p {

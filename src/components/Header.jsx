@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext, useMemo } from "react";
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 //components
 import Hamburguer from '../components/Hamburguer';
 import AppContext from '../context/AppContext.js';
@@ -13,6 +13,7 @@ import '../assets/Header.scss'
 
 const Header = () => {
     const [state, setState] = useState('close')
+    const history = useHistory();
     const { Google, LogOut } = Methods();
     const { state: { totalQuantity } } = useContext(AppContext);
 
@@ -42,6 +43,9 @@ const Header = () => {
         
     }
 
+    const toCheckout = () =>{
+        history.push("/products/checkout");
+    }
     
 
     return (
@@ -59,7 +63,7 @@ const Header = () => {
                 <li className="menu_item_link"><a className="link-menu" href=""></a>Contactanos</li>
             </ul>
             <div className="menu_cart-container">
-                <i className="fas fa-shopping-cart"></i>
+                <i className="fas fa-shopping-cart" onClick={toCheckout}></i>
                 <p>{totalQuantity}</p>
             </div>
             

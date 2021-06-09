@@ -1,9 +1,26 @@
-.principal-banner{
-    width: 100vw;
-    height: 40vh;
-    img{
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
+.principal-banner {
+  width: 100vw;
+  height: 60vh;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+@media screen and(min-width: 650px) {
+  .principal-banner {
+    height: 70vh;
+  }
+}
+
+@media screen and(min-width: 1200px) {
+  .principal-banner {
+    img {
+      width: 50%;
+      margin: 0 50%;
+      object-fit: contain;
+      transform: translate(-50%, 0);
     }
+  }
 }
