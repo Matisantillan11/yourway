@@ -1,15 +1,16 @@
 //hooks
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import { useHistory } from 'react-router-dom'
 
 //styles
 import '../assets/Product.scss'
 import AppContext from '../context/AppContext'
+import initialState from '../initialState'
 
 
 const Product = ({ product }) =>{
     const history = useHistory()
-    const {state, addToCart} = useContext(AppContext);
+    const { addToCart, addQuantity} = useContext(AppContext);
     
     const ToProducts = (e) =>{
         e.preventDefault();
@@ -17,6 +18,7 @@ const Product = ({ product }) =>{
     }
 
     const handleAddToCart = () => {
+        addQuantity();
         addToCart(product.info, product.id);
     }
     

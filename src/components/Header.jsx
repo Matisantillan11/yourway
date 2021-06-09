@@ -14,6 +14,8 @@ import '../assets/Header.scss'
 const Header = () => {
     const [state, setState] = useState('close')
     const { Google, LogOut } = Methods();
+    const { state: { totalQuantity } } = useContext(AppContext);
+
     
     useEffect(()=>{
         firebase.auth().onAuthStateChanged(user =>{
@@ -40,6 +42,8 @@ const Header = () => {
         
     }
 
+    
+
     return (
         <>
         <header>
@@ -54,7 +58,10 @@ const Header = () => {
                 <li className="menu_item_link"><a className="link-menu" href=""></a>Nosotros</li>
                 <li className="menu_item_link"><a className="link-menu" href=""></a>Contactanos</li>
             </ul>
-            <i className="fas fa-shopping-cart"></i>
+            <div className="menu_cart-container">
+                <i className="fas fa-shopping-cart"></i>
+                <p>{totalQuantity}</p>
+            </div>
             
         </header>
         </>

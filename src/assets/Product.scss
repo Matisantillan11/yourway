@@ -1,60 +1,59 @@
 @import url('../index.scss');
 
-.products_container{
-    min-height: 60vh;
-    margin: 15% 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
+.products_container {
+  min-height: 60vh;
+  margin: 15% 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
 
-    .product_card{
+  .product_card {
+    min-width: 185px;
+    width: 40%;
+    max-width: 320px;
+    min-height: 225px;
+    margin: 25px 7.5px;
+    .product_card-img {
+      min-width: 185px;
+      width: 100%;
+      max-width: 320px;
+      min-height: 150px;
+      height: 70%;
+      img {
         min-width: 185px;
-        width: 40%;
+        width: 100%;
         max-width: 320px;
-        min-height: 225px;
-        
-        margin: 25px 7.5px;
-        .product_card-img{
-            min-width: 185px;
-            width: 100%;
-            max-width: 320px;
-            min-height: 150px;
-            height: 70%;
-            img{
-            min-width: 185px;
-            width: 100%;
-            max-width: 320px;
-            min-height: 150px;
-            height: 100%;
-            
-            }
-        }
-        .product_card-main{
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            .product_card-title{
-                font-size: 18px;
-                font-weight: bolder;
-                margin: 5% 0;
-            }
-
-            .product_card-price{
-                font-size: 16px;
-                margin: 0 0 5% 0;
-            }
-        }
-
-        .product_card-add-to-cart{
-            background-color: transparent;
-            color: var(--dark-gray);
-            padding: 8px 16px;
-            border: 2px solid var(--medium-blue);
-            border-radius: 8px;
-            margin: 0 auto 5% auto;
-            outline: none;
-        }
+        min-height: 150px;
+        height: 100%;
+      }
     }
+    .product_card-main {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      .product_card-title {
+        font-size: 18px;
+        font-weight: bolder;
+        margin: 5% 0;
+      }
+
+      .product_card-price {
+        font-size: 16px;
+        margin: 0 0 5% 0;
+      }
+    }
+
+    .product_card-add-to-cart {
+      background-color: transparent;
+      color: var(--dark-gray);
+      padding: 8px 16px;
+      border: 2px solid var(--medium-blue);
+      border-radius: 8px;
+      margin: 0 auto 5% auto;
+      outline: none;
+      z-index: 3;
+    }
+  }
 }

@@ -31,8 +31,9 @@ const useInitialState = () => {
       return state.cart.map((i) =>
         i.id === id
           ? setState({
+              ...state,
               cart: [
-                ...state.cart.slice(state.cart.indexOf(i.id) - 1, 1),
+                ...state.cart.filter((item) => item.id !== i.id),
                 {
                   ...i,
                   quantity: i.quantity + 1,
@@ -44,13 +45,17 @@ const useInitialState = () => {
     }
 
     setState({
+      ...state,
       cart: [...state.cart, { product: payload, id, quantity }],
     });
   };
 
   const removeFromCart = (payload) => {};
 
-  return { addToCart, removeFromCart, state, products };
+  const addQuantity = () => {
+    setState({ ...state, totalQuantity: state.totalQuantity++ });
+  };
+  return { addToCart, addQuantity, removeFromCart, state, products };
 };
 
 export default useInitialState;
