@@ -15,7 +15,7 @@ const Home = () =>{
     <>
         <div className="home">
             <div className="principal-banner">
-                <img src={Hero} alt="" />
+                
             </div>
             <Products products = {initialState.products}/>
             <Banners />

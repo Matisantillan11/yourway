@@ -26,7 +26,6 @@ const Methods = () => {
           photo: user.photoURL,
           id: user.uid,
         };
-        console.log(buyer);
       })
       .catch(() => {
         error(
