@@ -1,13 +1,15 @@
-//styles
 import { Link } from 'react-router-dom'
+//styles
 import '../assets/Footer.scss'
+//logo
+import logo from '../assets/images/logo.png'
 const Footer = ( {children} ) =>{
     return(
         <>
         {children}
         <footer>
             <div className="header__logo">
-                <p>Your Way</p>
+            <Link to="/"><img src={logo}/></Link>
             </div>
             <div className="menu__items-container">
                 <p><Link className="link" to="/">Home</Link></p>

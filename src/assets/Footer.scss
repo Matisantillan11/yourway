@@ -8,17 +8,18 @@ footer {
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 30vh;
+  min-height: 30vh;
+  height: auto;
+  padding: 5% 0;
   background: var(--dark-gray);
   color: var(--soft-white);
   .header__logo {
-    padding: 5px 18px;
-    background-color: black;
-    p {
-      font-size: 18px;
-      color: var(--soft-white);
-      font-weight: 800;
-      text-align: center;
+    width: 150px;
+    height: 150px;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
   }
   .menu__items-container {
@@ -47,6 +48,7 @@ footer {
   }
 
   p {
+    margin: 2% 0;
     font-size: 12px;
   }
 }

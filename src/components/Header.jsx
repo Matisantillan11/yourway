@@ -1,22 +1,24 @@
-import { useState, useEffect, useContext, useMemo } from "react";
+import { useState, useEffect, useContext} from "react";
 import { Link, useHistory } from 'react-router-dom';
 //components
 import Hamburguer from '../components/Hamburguer';
 import AppContext from '../context/AppContext.js';
 
 //firebase
-import firebase from 'firebase/app'
-import 'firebase/auth'
+import firebase from 'firebase/app';
+import 'firebase/auth';
 import Methods from "../firebase/Authentication/methods.js";
 //styles
-import '../assets/Header.scss'
+import '../assets/Header.scss';
+//logo
+import logo from '../assets/images/logo.png';
 
 const Header = () => {
     const [state, setState] = useState('close')
     const [stateCart, setStateCart] = useState('close')
     const history = useHistory();
     const { Google, LogOut } = Methods();
-    const { state: { totalQuantity, cart } } = useContext(AppContext);
+    const { state: { totalQuantity, cart, removeFromCart } } = useContext(AppContext);
 
     
     useEffect(()=>{
@@ -63,7 +65,7 @@ const Header = () => {
         <header>
             <Hamburguer status={state} handleState= {handleMenu}/>
             <div className="header__logo">
-                <p>Your Way</p>
+               <Link to="/"><img src={logo}/></Link> 
             </div>
             <ul className="menu_item" status={state} onClick = {handleMenu}>
                 <li className="menu_item_link" id="logButton">Ingresar</li>
@@ -83,12 +85,12 @@ const Header = () => {
                     {cart.length > 0 && cart.map(item =>{
                     return(<div key={item.id} className="Checkout-item">
                         <div className="Checkout-element">
-                        <h4>{item.product.name}</h4>
-                        <span>X{item.quantity}</span>
+                        <h4>{item.product.name} <span>x{item.quantity}</span></h4>
+                        
                         <span>${item.product.price}</span>
                         </div>
                         <button type="button" >
-                        <i className="fas fa-trash-alt" title="Eliminar" />
+                        <i className="fas fa-trash-alt" title="Eliminar" onClick={()=>removeFromCart(item)}/>
                         </button>
                     </div>)})}
 

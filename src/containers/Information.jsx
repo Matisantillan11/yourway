@@ -1,16 +1,18 @@
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom'
 
 //firebase
 import firebase from 'firebase/app'
 import 'firebase/auth'
-
+import responses from '../firebase/responses/responses.js';
 //styles
 import '../assets/Information.scss'
+import AppContext from '../context/AppContext';
 
 const Information = () => {
     const form = useRef(null);
-
+    const {state:{cart}} = useContext(AppContext);
+    const {error} = responses()
     useEffect(()=>{
         firebase.auth().onAuthStateChanged(user =>{
             if(user){
@@ -24,6 +26,10 @@ const Information = () => {
             }
         })
     })
+
+    const handlePay = () => {
+      error("Lo sentimos", "Aún no se encuentra disponible habilitada esta funcionalidad");
+    }
     
     return (
       <div className="Information">
@@ -46,7 +52,7 @@ const Information = () => {
               <Link to="/products/checkout">Regresar</Link>
             </div>
             <div className="Information-next">
-              <button type="button">
+              <button type="button" onClick={handlePay}>
                 Pagar
               </button>
             </div>
@@ -54,12 +60,17 @@ const Information = () => {
         </div>
         <div className="Information-sidebar">
           <h3>Pedido:</h3>
-            <div  className="Information-item">
+          {cart.map(item =>{
+          return(
+            <div  className="Information-item" key={item.id}>
               <div className="Information-element">
-                <h4>Buzo Thrasher</h4>
-                <span>$3600</span>
+                
+                <h4>{item.product.name} <span>x{item.quantity}</span></h4>
+                <span>${item.product.price * item.quantity}</span>
               </div>
             </div>
+          )})}
+            
         </div>
       </div>
     );

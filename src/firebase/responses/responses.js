@@ -11,7 +11,15 @@ const Responses = () => {
     });
   };
 
-  const error = () => {};
+  const error = (title, body, buttonOK = 'Ok', buttonError = 'Cancelar') => {
+    swal.fire({
+      icon: 'error',
+      title: title,
+      text: body,
+      confirmButtonText: buttonOK,
+      denyButtonText: buttonError,
+    });
+  };
 
   return { success, error };
 };
