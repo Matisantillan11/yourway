@@ -18,7 +18,7 @@ const Header = () => {
     const [stateCart, setStateCart] = useState('close')
     const history = useHistory();
     const { Google, LogOut } = Methods();
-    const { state: { totalQuantity, cart, removeFromCart } } = useContext(AppContext);
+    const { state: { totalQuantity, cart }, restQuantity, removeFromCart } = useContext(AppContext);
 
     
     useEffect(()=>{
@@ -34,6 +34,10 @@ const Header = () => {
         })
     }, [])
 
+    const handleRemoveFromCart = (product) =>{
+        restQuantity();
+        removeFromCart(product);
+    }
    
 
     const handleMenu = (ev) =>{
@@ -90,7 +94,7 @@ const Header = () => {
                         <span>${item.product.price}</span>
                         </div>
                         <button type="button" >
-                        <i className="fas fa-trash-alt" title="Eliminar" onClick={()=>removeFromCart(item)}/>
+                        <i className="fas fa-trash-alt" title="Eliminar" onClick={()=>handleRemoveFromCart(item)}/>
                         </button>
                     </div>)})}
 

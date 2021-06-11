@@ -51,10 +51,26 @@ const useInitialState = () => {
   };
 
   const removeFromCart = (payload) => {
-    setState({
-      ...state,
-      cart: state.cart.filter((items) => items.id !== payload.id),
-    });
+    const isInCart = state.cart.find((i) => i.id == payload.id);
+    if (isInCart) {
+      return state.cart.map((i) =>
+        i.id === payload.id && i.quantity > 1
+          ? setState({
+              ...state,
+              cart: [
+                ...state.cart.filter((item) => item.id !== i.id),
+                {
+                  ...i,
+                  quantity: i.quantity - 1,
+                },
+              ],
+            })
+          : setState({
+              ...state,
+              cart: state.cart.filter((items) => items.id !== payload.id),
+            })
+      );
+    }
   };
 
   const addQuantity = () => {
@@ -62,7 +78,9 @@ const useInitialState = () => {
   };
 
   const restQuantity = () => {
-    setState({ ...state, totalQuantity: state.totalQuantity-- });
+    if (state.totalQuantity !== 0) {
+      setState({ ...state, totalQuantity: state.totalQuantity-- });
+    }
   };
   return {
     addToCart,

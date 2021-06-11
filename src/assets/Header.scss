@@ -118,18 +118,19 @@ header {
   .cart_items-container {
     position: fixed;
     width: 0vw;
-    height: 95vh;
+    height: 92.5vh;
     bottom: 0;
     right: 0;
-    transition: all 1s ease;
+    transition: all 0.5s ease;
     background-color: var(--soft-white);
-    z-index: 99;
+    z-index: 9;
     .Checkout-item {
       position: relative;
       display: flex;
       justify-content: space-between;
       align-items: center;
       margin: 15px 0;
+      z-index: 15;
       .Checkout-element {
         display: flex;
         justify-content: space-between;
@@ -142,6 +143,7 @@ header {
         }
       }
       .fas {
+        font-size: 18px;
         margin: 0 10px;
         color: var(--dark-gray);
         cursor: pointer;
