@@ -13,6 +13,7 @@ import Information from '../containers/Information';
 //hooks
 import AppContext from '../context/AppContext.js';
 import useInitialState from '../hooks/useInitialState.js';
+import Payment from '../containers/Payment';
 
 const App = () =>{
     const initialState = useInitialState();
@@ -25,6 +26,7 @@ const App = () =>{
                         <Route exact path="/products/details" component={ProductDetailsPage}/>
                         <Route exact path="/products/checkout" component={Checkout}/>
                         <Route exact path="/products/checkout/information" component={Information}/>
+                        <Route exact path="/products/checkout/information/payment" component={Payment}/>
                         <Route path="/" component={Home}/>
                     </Switch>
                 </Layout>

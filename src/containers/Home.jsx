@@ -10,18 +10,17 @@ import Hero from '../assets/images/banner1.jpg'
 //hooks
 import initialState from "../initialState";
 
-const Home = () =>{
+const Home = () => {
     return (
-    <>
-        <div className="home">
-            <div className="principal-banner">
-                
+        <>
+            <div className="home">
+                <div className="principal-banner">
+                </div>
+                <Products products={initialState.products} />
+                <Banners />
+
             </div>
-            <Products products = {initialState.products}/>
-            <Banners />
-            
-        </div>
-    </>
+        </>
     )
 }
 

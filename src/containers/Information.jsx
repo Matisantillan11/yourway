@@ -5,9 +5,15 @@ import { Link } from 'react-router-dom'
 import firebase from 'firebase/app'
 import 'firebase/auth'
 import responses from '../firebase/responses/responses.js';
+
+//Mercado Pago
+//import methods from '../mercadopago/payment-methods/methods';
+
 //styles
 import '../assets/Information.scss'
 import AppContext from '../context/AppContext';
+
+
 
 const Information = () => {
     const form = useRef(null);
@@ -27,9 +33,6 @@ const Information = () => {
         })
     })
 
-    const handlePay = () => {
-      error("Lo sentimos", "Aún no se encuentra disponible habilitada esta funcionalidad");
-    }
     
     return (
       <div className="Information">
@@ -52,9 +55,9 @@ const Information = () => {
               <Link to="/products/checkout">Regresar</Link>
             </div>
             <div className="Information-next">
-              <button type="button" onClick={handlePay}>
+              <Link to="/products/checkout/information/payment">
                 Pagar
-              </button>
+              </Link>
             </div>
           </div>
         </div>

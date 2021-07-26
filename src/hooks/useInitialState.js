@@ -1,9 +1,12 @@
+/* eslint-disable no-plusplus */
 import { useState, useEffect } from 'react';
-import initialState from '../initialState.js';
 
-//firebase
+// firebase
 import firebase from 'firebase/app';
 import 'firebase/firestore';
+
+import initialState from '../initialState.js';
+
 
 const useInitialState = () => {
   const [state, setState] = useState(initialState);
@@ -12,21 +15,21 @@ const useInitialState = () => {
   useEffect(async () => {
     const db = firebase.firestore();
     const productRef = db.collection('products');
-    let products = [];
+    let items = [];
     await productRef.onSnapshot((snapshot) => {
       if (snapshot.empty) {
         throw new Error('[Error getting data from database]');
       } else {
         snapshot.forEach((product) => {
-          products = [...products, { info: product.data(), id: product.id }];
+          items = [...items, { info: product.data(), id: product.id }];
         });
-        setProducts(products);
+        setProducts(items);
       }
     });
   }, []);
 
   const addToCart = (payload, id, quantity = 1) => {
-    const isInCart = state.cart.find((i) => i.id == id);
+    const isInCart = state.cart.find((i) => i.id === id);
     if (isInCart) {
       return state.cart.map((i) =>
         i.id === id
@@ -51,7 +54,7 @@ const useInitialState = () => {
   };
 
   const removeFromCart = (payload) => {
-    const isInCart = state.cart.find((i) => i.id == payload.id);
+    const isInCart = state.cart.find((i) => i.id === payload.id);
     if (isInCart) {
       return state.cart.map((i) =>
         i.id === payload.id && i.quantity > 1
@@ -79,7 +82,7 @@ const useInitialState = () => {
 
   const restQuantity = () => {
     if (state.totalQuantity !== 0) {
-      setState({ ...state, totalQuantity: state.totalQuantity-- });
+      setState({ ...state, totalQuantity: state.totalQuantity--});
     }
   };
   return {

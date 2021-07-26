@@ -27,6 +27,7 @@
   "homepage": "https://github.com/Matisantillan11/yourway#readme",
   "dependencies": {
     "firebase": "^8.6.3",
+    "mercadopago": "^1.5.8",
     "prettier": "^2.3.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
