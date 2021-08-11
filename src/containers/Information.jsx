@@ -15,23 +15,23 @@ import AppContext from '../context/AppContext';
 
 
 
+
 const Information = () => {
     const form = useRef(null);
     const {state:{cart}} = useContext(AppContext);
     const {error} = responses()
+
+    
     useEffect(()=>{
         firebase.auth().onAuthStateChanged(user =>{
             if(user){
                form.current.name.value = user.displayName;
                form.current.email.value = user.email;
                form.current.phone.value = user.phoneNumber;
-            } else {
-                form.current.name.value = "Nombre Completo";
-                form.current.email.value = "Email";
-                form.current.phone.value = "Teléfono";
-            }
+            } 
         })
-    })
+
+    }, [form])
 
     
     return (

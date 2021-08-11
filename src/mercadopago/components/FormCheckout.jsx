@@ -1,6 +1,12 @@
+import React from 'react'; 
+
+import '../../assets/Information.scss'
+
 const FormCheckout= () =>{
     return(
         <>
+        <div className="Information Information-form">
+
             <form action="/process_payment" method="post" id="paymentForm">
                 <h3>Detalles del comprador</h3>
                     <div>
@@ -31,7 +37,7 @@ const FormCheckout= () =>{
                                     onselectstart="return false" onpaste="return false"
                                     oncopy="return false" oncut="return false"
                                     ondrag="return false" ondrop="return false" autocomplete='off' />
-                                <span class="date-separator">/</span>
+                                <span className="date-separator">/</span>
                                 <input type="text" placeholder="YY" id="cardExpirationYear" data-checkout="cardExpirationYear"
                                     onselectstart="return false" onpaste="return false"
                                     oncopy="return false" oncut="return false"
@@ -70,6 +76,7 @@ const FormCheckout= () =>{
                     </div>
                 </div>
             </form>
+        </div>
             
         </>
     )
