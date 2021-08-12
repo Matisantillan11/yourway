@@ -83,7 +83,7 @@ const Header = () => {
                     <p>{totalQuantity}</p>
                 </div>
 
-                <div className="cart_items-container" status={stateCart} onClick={handleOpenCart}>
+                <div className="cart_items-container" status={stateCart} >
                     <div className="Checkout-content">
                         <h4>Lista de productos</h4>
                         {cart.length > 0 && cart.map(item => (<div key={item.id} className="Checkout-item">
@@ -104,7 +104,7 @@ const Header = () => {
                         <div className="Checkout-sidebar">
                             <h3>Precio Total: <span>$ {handleTotal()}</span></h3>
                             <button type="button">
-                                <Link className="link" to="/products/checkout"> Continuar </Link>
+                                <Link className="link" to="/products/checkout" onClick={handleOpenCart}> Continuar </Link>
                             </button>
                         </div>
 

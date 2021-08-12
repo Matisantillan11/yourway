@@ -118,7 +118,7 @@ header {
   .cart_items-container {
     position: fixed;
     width: 0vw;
-    height: 92.5vh;
+    height: calc(100% - 75px);
     bottom: 0;
     right: 0;
     transition: all 0.5s ease;
@@ -195,10 +195,13 @@ header {
 
 @media screen and(min-width:1250px) {
   header {
+    .menu_item.expanded {
+      width: 40vw;
+    }
     .cart_items-container.expanded {
-      min-width: 50vw;
+      min-width: 35vw;
       overflow-x: hidden;
-      padding: 5%;
+      padding: 2.5%;
     }
   }
 }

@@ -32,7 +32,7 @@ const Checkout = () => {
               <i className="fas fa-trash-alt" title="Eliminar" onClick={() => handleRemoveFromCart(item)} />
             </button>
           </div>)
-        }) : <p>Agregá productos</p>}
+        }) : <Link to="/products/">Agregá productos</Link>}
       </div>
       {cart.length > 0 && (
         <div className="Checkout-sidebar">

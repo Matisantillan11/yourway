@@ -3,6 +3,7 @@
 .products_container {
   width: 100%;
   min-height: 60vh;
+  padding: 10% 0 0 0 ;
   margin: 5% 0;
   display: flex;
   justify-content: center;
@@ -56,5 +57,12 @@
       outline: none;
       z-index: 3;
     }
+  }
+}
+
+
+@media screen and(min-width:1250px) {
+  .products_container {
+    padding-top: 5%;
   }
 }

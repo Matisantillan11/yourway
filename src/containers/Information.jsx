@@ -24,9 +24,9 @@ const Information = () => {
     useEffect(()=>{
         firebase.auth().onAuthStateChanged(user =>{
             if(user){
-               form.current.name.value = user.displayName;
+               /* form.current.name.value = user.displayName;
                form.current.email.value = user.email;
-               form.current.phone.value = user.phoneNumber;
+               form.current.phone.value = user.phoneNumber; */
             } 
         })
 
@@ -45,18 +45,23 @@ const Information = () => {
             <h2>Informacion de contacto:</h2>
           </div>
           <div className="Information-form">
-            <form action="http://localhost:3000/api/mercado-pago/checkout" method="POST">
+            <form action="http://localhost:3000/api/mercado-pago/checkout"  method="POST" >
               {/* <input type="text" placeholder="Nombre Completo" name="name" />
               <input type="text" placeholder="Correo Electronico" name="email" />
               <input type="text" placeholder="Direccion" name="address" />
               <input type="text" placeholder="Ciudad" name="city" />
               <input type="text" placeholder="Código Postal" name="cp" />
               <input type="text" placeholder="Teléfono" name="phone" />  */}
-              
-              <input type="hidden" name="id" value={cart[0].id} />
-              <input type="hidden" name="price" value={cart[0].product.price} />
-              <input type="hidden" name="title" value={cart[0].product.name} />
-              <input type="hidden" name="quantity" value={cart[0].quantity} />
+              {cart.map(items => {
+                return (
+                  <div>
+                    <input type="hidden" name="id" value={items.id} />
+                    <input type="hidden" name="price" value={items.product.price} />
+                    <input type="hidden" name="title" value={items.product.name} />
+                    <input type="hidden" name="quantity" value={items.quantity} />
+                  </div>
+                )
+              })}
               
                 
               
