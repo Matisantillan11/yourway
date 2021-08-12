@@ -18,8 +18,7 @@ import AppContext from '../context/AppContext';
 
 const Information = () => {
     const form = useRef(null);
-    const {state:{cart}} = useContext(AppContext);
-    const {error} = responses()
+    const {state:{ cart }} = useContext(AppContext);
 
     
     useEffect(()=>{
@@ -31,35 +30,42 @@ const Information = () => {
             } 
         })
 
-    }, [form])
+    }, [])
 
     
     return (
       <div className="Information">
+        <div className="Information-buttons">
+            <div className="Information-back">
+              <Link to="/products/checkout">Regresar</Link>
+            </div>
+          </div>
         <div className="Information-content">
           <div className="Information-head">
             <h2>Informacion de contacto:</h2>
           </div>
           <div className="Information-form">
-            <form ref={form}>
-              <input type="text" placeholder="Nombre Completo" name="name" />
+            <form action="http://localhost:3000/api/mercado-pago/checkout" method="POST">
+              {/* <input type="text" placeholder="Nombre Completo" name="name" />
               <input type="text" placeholder="Correo Electronico" name="email" />
               <input type="text" placeholder="Direccion" name="address" />
               <input type="text" placeholder="Ciudad" name="city" />
               <input type="text" placeholder="Código Postal" name="cp" />
-              <input type="text" placeholder="Teléfono" name="phone" />
+              <input type="text" placeholder="Teléfono" name="phone" />  */}
+              
+              <input type="hidden" name="id" value={cart[0].id} />
+              <input type="hidden" name="price" value={cart[0].product.price} />
+              <input type="hidden" name="title" value={cart[0].product.name} />
+              <input type="hidden" name="quantity" value={cart[0].quantity} />
+              
+                
+              
+              <div className="Information-next">
+                <input type="submit" value="Pagar" />
+            </div>
             </form>
           </div>
-          <div className="Information-buttons">
-            <div className="Information-back">
-              <Link to="/products/checkout">Regresar</Link>
-            </div>
-            <div className="Information-next">
-              <Link to="/products/checkout/information/payment">
-                Pagar
-              </Link>
-            </div>
-          </div>
+          
         </div>
         <div className="Information-sidebar">
           <h3>Pedido:</h3>
