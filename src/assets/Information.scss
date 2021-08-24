@@ -90,3 +90,9 @@ input {
   display: block;
   outline: none;
 }
+
+@media screen and(min-width:1250px) {
+  .Information {
+    padding-top: 8%;
+  }
+}

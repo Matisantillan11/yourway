@@ -79,3 +79,16 @@
     cursor: pointer;
   }
 }
+
+@media screen and(min-width: 1250px) {
+  .product_description {
+    margin-top: 5%;
+    .product_page-information-container {
+      margin: 0.5% 15%;
+      padding: 0.5% 2.5%;
+    }
+    .product_card-add-to-cart {
+      margin: 0.5% 18%;
+    }
+  }
+}
