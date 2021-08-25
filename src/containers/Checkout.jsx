@@ -30,7 +30,8 @@ const Checkout = () => {
       })
     );
 
-    mp.post('/checkout', data);
+    const petition = await mp.post('/checkout', data);
+    window.location.href = petition.data;
   };
 
   const handleTotal = () => {
