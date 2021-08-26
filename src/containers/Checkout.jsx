@@ -46,6 +46,7 @@ const Checkout = () => {
     restQuantity();
     removeFromCart(product);
   };
+
   return (
     <div className="Checkout">
       <div className="Checkout-content">

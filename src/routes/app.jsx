@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 //components
@@ -16,6 +16,7 @@ import useInitialState from '../hooks/useInitialState.js';
 
 const App = () => {
   const initialState = useInitialState();
+
   return (
     <AppContext.Provider value={initialState}>
       <BrowserRouter>
