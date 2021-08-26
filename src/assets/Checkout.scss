@@ -56,10 +56,23 @@
       margin: 5% auto;
       display: block;
       outline: none;
+      color: #f1f1f1;
       .link {
         color: var(--soft-white);
         font-size: 15px;
         font-weight: bold;
+      }
+    }
+  }
+}
+
+@media screen and(min-width:1250px) {
+  .Checkout {
+    padding: 0.5% 5%;
+    margin: 8% 0 0 0;
+    .Checkout-sidebar {
+      button {
+        width: 20%;
       }
     }
   }
