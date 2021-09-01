@@ -3,19 +3,20 @@ import { useContext } from 'react';
 import Product from '../components/Product';
 import AppContext from '../context/AppContext';
 
-
 const Products = () => {
-    const { products } = useContext(AppContext);
-    
-    return(
-        <>
-        <div className="products_container">
-            {products.map((product) =>{
-               return <Product product={product} key={product.id}/> 
-            })}
-        </div>
-        </>
-    )
-}
+  const {
+    state: { products, loading },
+  } = useContext(AppContext);
 
-export default Products
+  return (
+    <>
+      <div className="products_container">
+        {products.map((product) => {
+          return <Product product={product} key={product.id} />;
+        })}
+      </div>
+    </>
+  );
+};
+
+export default Products;

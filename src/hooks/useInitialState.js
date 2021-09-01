@@ -7,12 +7,11 @@ import 'firebase/firestore';
 
 import initialState from '../initialState.js';
 
-
 const useInitialState = () => {
   const [state, setState] = useState(initialState);
-  const [products, setProducts] = useState([]);
 
   useEffect(async () => {
+    setState({ ...state, loading: true });
     const db = firebase.firestore();
     const productRef = db.collection('products');
     let items = [];
@@ -23,7 +22,7 @@ const useInitialState = () => {
         snapshot.forEach((product) => {
           items = [...items, { info: product.data(), id: product.id }];
         });
-        setProducts(items);
+        setState({ ...state, products: items, loading: false });
       }
     });
   }, []);
@@ -82,7 +81,7 @@ const useInitialState = () => {
 
   const restQuantity = () => {
     if (state.totalQuantity !== 0) {
-      setState({ ...state, totalQuantity: state.totalQuantity--});
+      setState({ ...state, totalQuantity: state.totalQuantity-- });
     }
   };
   return {
@@ -91,7 +90,6 @@ const useInitialState = () => {
     restQuantity,
     removeFromCart,
     state,
-    products,
   };
 };
 
