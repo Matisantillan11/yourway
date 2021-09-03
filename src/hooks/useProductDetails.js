@@ -1,13 +1,16 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 //firebase
 import firebase from 'firebase/app';
 import 'firebase/firestore';
+import initialState from '../initialState';
 
 export const useProductDetails = () => {
   const [productSearched, setProductSearched] = useState([]);
+  const [state, setState] = useState(initialState);
 
   const getProductDetail = async (product) => {
+    setState({ ...state, loading: true });
     const db = firebase.firestore();
     const productRef = db.collection('products').doc(`${product}`);
 
@@ -16,6 +19,7 @@ export const useProductDetails = () => {
       .then((doc) => {
         if (doc.exists) {
           setProductSearched(doc.data());
+          setState({ ...state, loading: false });
         } else {
           console.error(
             '[Product details error] no se pudo obtener el producto'
@@ -25,5 +29,5 @@ export const useProductDetails = () => {
       .catch((error) => console.error(error.message));
   };
 
-  return { productSearched, getProductDetail };
+  return { state, productSearched, getProductDetail };
 };

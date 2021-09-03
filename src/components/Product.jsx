@@ -8,7 +8,7 @@ import AppContext from '../context/AppContext';
 
 const Product = ({ product }) => {
   const history = useHistory();
-  const { addToCart /* addQuantity */ } = useContext(AppContext);
+  const { addToCart } = useContext(AppContext);
 
   const ToProducts = (e) => {
     e.preventDefault();
@@ -16,7 +16,6 @@ const Product = ({ product }) => {
   };
 
   const handleAddToCart = () => {
-    /* addQuantity(1); */
     addToCart(product.info, product.id);
   };
 
