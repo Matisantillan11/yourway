@@ -20,9 +20,7 @@ const Header = () => {
 
   const { Google, LogOut } = Methods();
   const {
-    state: { totalQuantity, loading },
-    restQuantity,
-    removeFromCart,
+    state: { totalQuantity },
   } = useContext(AppContext);
 
   useEffect(() => {

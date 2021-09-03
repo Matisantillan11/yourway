@@ -91,11 +91,15 @@ header {
   .menu_item.expanded {
     width: 100vw;
     .menu_item_link {
-      display: block;
+      display: flex;
       color: var(--soft-white);
+      justify-content: center;
+      align-items: center;
+
       .link-menu {
         display: block;
         color: var(--soft-white);
+        margin-right: 10px;
       }
     }
   }
