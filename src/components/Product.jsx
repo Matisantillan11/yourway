@@ -8,7 +8,7 @@ import AppContext from '../context/AppContext';
 
 const Product = ({ product }) => {
   const history = useHistory();
-  const { addToCart, addQuantity } = useContext(AppContext);
+  const { addToCart /* addQuantity */ } = useContext(AppContext);
 
   const ToProducts = (e) => {
     e.preventDefault();
@@ -16,7 +16,7 @@ const Product = ({ product }) => {
   };
 
   const handleAddToCart = () => {
-    addQuantity();
+    /* addQuantity(1); */
     addToCart(product.info, product.id);
   };
 
@@ -36,6 +36,7 @@ const Product = ({ product }) => {
             Agregar al carrito
           </button>
         </div>
+        <p className="stock">{product.info.stock}</p>
       </div>
     </>
   );

@@ -3,7 +3,7 @@
 .products_container {
   width: 100%;
   min-height: 60vh;
-  padding: 10% 0 0 0 ;
+  padding: 10% 0 0 0;
   margin: 5% 0;
   display: flex;
   justify-content: center;
@@ -11,6 +11,7 @@
   flex-wrap: wrap;
 
   .product_card {
+    position: relative;
     min-width: 185px;
     width: 40%;
     max-width: 320px;
@@ -57,9 +58,20 @@
       outline: none;
       z-index: 3;
     }
+
+    .stock {
+      position: absolute;
+      border: 1px solid;
+      color: #f1f1f1;
+      padding: 5px 10px;
+      background: gray;
+      font-size: 12px;
+      border-radius: 12px;
+      top: 0;
+      left: 25px;
+    }
   }
 }
-
 
 @media screen and(min-width:1250px) {
   .products_container {

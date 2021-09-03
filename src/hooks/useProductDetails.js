@@ -5,7 +5,7 @@ import firebase from 'firebase/app';
 import 'firebase/firestore';
 
 export const useProductDetails = () => {
-  const [search, setSearch] = useState([]);
+  const [productSearched, setProductSearched] = useState([]);
 
   const getProductDetail = async (product) => {
     const db = firebase.firestore();
@@ -15,7 +15,7 @@ export const useProductDetails = () => {
       .get()
       .then((doc) => {
         if (doc.exists) {
-          setSearch(doc.data());
+          setProductSearched(doc.data());
         } else {
           console.error(
             '[Product details error] no se pudo obtener el producto'
@@ -25,5 +25,5 @@ export const useProductDetails = () => {
       .catch((error) => console.error(error.message));
   };
 
-  return { search, getProductDetail };
+  return { productSearched, getProductDetail };
 };
