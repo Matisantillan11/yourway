@@ -22,28 +22,36 @@ const Footer = ({ children }) => {
           </p>
           <p>
             <Link className="link" to="/products">
-              Products
+              Productos
             </Link>
           </p>
-          <p>About Us</p>
-          <p>Contact Us</p>
+          <p>
+            <Link className="link" to="/">
+              Sobre nosotros
+            </Link>
+          </p>
+          <p>
+            <Link className="link" to="/">
+              Contactanos
+            </Link>
+          </p>
         </div>
         <div className="icons__container">
-          <div className="icons_icon-container">
-            <a href="">
-              <IoMailSharp />
-            </a>
-          </div>
-          <div className="icons_icon-container">
-            <a href="">
-              <IoLogoInstagram />
-            </a>
-          </div>
-          <div className="icons_icon-container">
-            <a href="">
-              <IoLogoTwitter />
-            </a>
-          </div>
+          <a href="">
+            <IoMailSharp size={25} />
+          </a>
+
+          <a
+            href="https://www.instagram.com/yourway.cba/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <IoLogoInstagram size={25} />
+          </a>
+
+          <a href="">
+            <IoLogoTwitter size={25} />
+          </a>
         </div>
 
         <p>Development by @matisantillan11. Copyright © 2021</p>

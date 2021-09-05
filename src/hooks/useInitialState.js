@@ -38,9 +38,10 @@ const useInitialState = () => {
                 ...state.cart.filter((item) => item.id !== i.id),
                 {
                   ...i,
-                  quantity: i.quantity + 1,
+                  quantity: i.quantity + quantity,
                 },
               ],
+              totalQuantity: state.totalQuantity + quantity,
             })
           : i
       );
@@ -49,6 +50,7 @@ const useInitialState = () => {
     setState({
       ...state,
       cart: [...state.cart, { product: payload, id, quantity }],
+      totalQuantity: state.totalQuantity + quantity,
     });
   };
 
@@ -66,28 +68,19 @@ const useInitialState = () => {
                   quantity: i.quantity - 1,
                 },
               ],
+              totalQuantity: state.totalQuantity - 1,
             })
           : setState({
               ...state,
               cart: state.cart.filter((items) => items.id !== payload.id),
+              totalQuantity: state.totalQuantity - 1,
             })
       );
     }
   };
 
-  const addQuantity = () => {
-    setState({ ...state, totalQuantity: state.totalQuantity++ });
-  };
-
-  const restQuantity = () => {
-    if (state.totalQuantity !== 0) {
-      setState({ ...state, totalQuantity: state.totalQuantity-- });
-    }
-  };
   return {
     addToCart,
-    addQuantity,
-    restQuantity,
     removeFromCart,
     state,
   };
