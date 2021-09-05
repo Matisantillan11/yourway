@@ -1,39 +1,63 @@
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 //styles
-import '../assets/Footer.scss'
+import '../assets/Footer.scss';
 //logo
-import logo from '../assets/images/logo.png'
-const Footer = ( {children} ) =>{
-    return(
-        <>
-        {children}
-        <footer>
-            <div className="header__logo">
-            <Link to="/"><img src={logo}/></Link>
-            </div>
-            <div className="menu__items-container">
-                <p><Link className="link" to="/">Home</Link></p>
-                <p><Link className="link" to="/products">Products</Link></p>
-                <p>About Us</p>
-                <p>Contact Us</p>
-            </div>
-            <div className="icons__container">
-                <div className="icons_icon-container">
-                    <a href=""><i className="fas fa-envelope"></i></a>
-                </div>
-                <div className="icons_icon-container">
-                    <a href=""><i className="fab fa-instagram"></i></a>
-                </div>
-                <div className="icons_icon-container">
-                    <a href=""><i className="fab fa-twitter"></i></a>
-                </div>
-            </div>
-            
+import logo from '../assets/images/logo.png';
+import { IoLogoInstagram, IoMailSharp, IoLogoTwitter } from 'react-icons/io5';
+const Footer = ({ children }) => {
+  return (
+    <>
+      {children}
+      <footer>
+        <div className="header__logo">
+          <Link to="/">
+            <img src={logo} />
+          </Link>
+        </div>
+        <div className="menu__items-container">
+          <p>
+            <Link className="link" to="/">
+              Home
+            </Link>
+          </p>
+          <p>
+            <Link className="link" to="/products">
+              Productos
+            </Link>
+          </p>
+          <p>
+            <Link className="link" to="/">
+              Sobre nosotros
+            </Link>
+          </p>
+          <p>
+            <Link className="link" to="/">
+              Contactanos
+            </Link>
+          </p>
+        </div>
+        <div className="icons__container">
+          <a href="">
+            <IoMailSharp size={25} />
+          </a>
 
-            <p>Development by @matisantillan11. Copyright © 2021</p>
-        </footer>
-        </>
-    )
-}
+          <a
+            href="https://www.instagram.com/yourway.cba/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <IoLogoInstagram size={25} />
+          </a>
+
+          <a href="">
+            <IoLogoTwitter size={25} />
+          </a>
+        </div>
+
+        <p>Development by @matisantillan11. Copyright © 2021</p>
+      </footer>
+    </>
+  );
+};
 
 export default Footer;

@@ -5,19 +5,16 @@ import { useHistory } from 'react-router-dom';
 //styles
 import '../assets/Product.scss';
 import AppContext from '../context/AppContext';
-import initialState from '../initialState';
 
 const Product = ({ product }) => {
   const history = useHistory();
-  const { addToCart, addQuantity } = useContext(AppContext);
-
+  const { addToCart } = useContext(AppContext);
   const ToProducts = (e) => {
     e.preventDefault();
     history.push(`/products/details?${product.id}`);
   };
 
   const handleAddToCart = () => {
-    addQuantity();
     addToCart(product.info, product.id);
   };
 
@@ -37,6 +34,8 @@ const Product = ({ product }) => {
             Agregar al carrito
           </button>
         </div>
+
+        <p className="stock">{product.info.stock}</p>
       </div>
     </>
   );

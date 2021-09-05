@@ -6,7 +6,7 @@
   justify-content: left;
   align-items: left;
   min-height: 65vh;
-  padding: 15% 5%;
+  padding: 25% 5%;
 }
 .Information-buttons {
   display: flex;
@@ -89,10 +89,4 @@ input {
   width: 100%;
   display: block;
   outline: none;
-}
-
-@media screen and(min-width:1250px) {
-  .Information {
-    padding-top: 8%;
-  }
 }

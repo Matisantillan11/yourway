@@ -1,28 +1,29 @@
 //components
 import Products from '../components/Products';
-import Banners from "../components/Banners";
+import Banners from '../components/Banners';
 
+//hooks
+import initialState from '../initialState';
 //styles
 import '../assets/Home.scss';
+import { useContext } from 'react';
+import AppContext from '../context/AppContext';
+import { LoaderCustom } from '../components/Loader';
 
-//images
-import Hero from '../assets/images/banner1.jpg'
-//hooks
-import initialState from "../initialState";
-
-const Home = () =>{
-    return (
+const Home = () => {
+  const {
+    state: { loading },
+  } = useContext(AppContext);
+  return (
     <>
-        <div className="home">
-            <div className="principal-banner">
-                
-            </div>
-            <Products products = {initialState.products}/>
-            <Banners />
-            
-        </div>
+      {loading && <LoaderCustom />}
+      <div className="home">
+        <div className="principal-banner"></div>
+        <Products products={initialState.products} />
+        <Banners />
+      </div>
     </>
-    )
-}
+  );
+};
 
 export default Home;

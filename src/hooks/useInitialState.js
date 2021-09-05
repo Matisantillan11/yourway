@@ -1,32 +1,34 @@
+/* eslint-disable no-plusplus */
 import { useState, useEffect } from 'react';
-import initialState from '../initialState.js';
 
-//firebase
+// firebase
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 
+import initialState from '../initialState.js';
+
 const useInitialState = () => {
   const [state, setState] = useState(initialState);
-  const [products, setProducts] = useState([]);
 
   useEffect(async () => {
+    setState({ ...state, loading: true });
     const db = firebase.firestore();
     const productRef = db.collection('products');
-    let products = [];
+    let items = [];
     await productRef.onSnapshot((snapshot) => {
       if (snapshot.empty) {
         throw new Error('[Error getting data from database]');
       } else {
         snapshot.forEach((product) => {
-          products = [...products, { info: product.data(), id: product.id }];
+          items = [...items, { info: product.data(), id: product.id }];
         });
-        setProducts(products);
+        setState({ ...state, products: items, loading: false });
       }
     });
   }, []);
 
   const addToCart = (payload, id, quantity = 1) => {
-    const isInCart = state.cart.find((i) => i.id == id);
+    const isInCart = state.cart.find((i) => i.id === id);
     if (isInCart) {
       return state.cart.map((i) =>
         i.id === id
@@ -36,9 +38,10 @@ const useInitialState = () => {
                 ...state.cart.filter((item) => item.id !== i.id),
                 {
                   ...i,
-                  quantity: i.quantity + 1,
+                  quantity: i.quantity + quantity,
                 },
               ],
+              totalQuantity: state.totalQuantity + quantity,
             })
           : i
       );
@@ -47,11 +50,12 @@ const useInitialState = () => {
     setState({
       ...state,
       cart: [...state.cart, { product: payload, id, quantity }],
+      totalQuantity: state.totalQuantity + quantity,
     });
   };
 
   const removeFromCart = (payload) => {
-    const isInCart = state.cart.find((i) => i.id == payload.id);
+    const isInCart = state.cart.find((i) => i.id === payload.id);
     if (isInCart) {
       return state.cart.map((i) =>
         i.id === payload.id && i.quantity > 1
@@ -64,31 +68,21 @@ const useInitialState = () => {
                   quantity: i.quantity - 1,
                 },
               ],
+              totalQuantity: state.totalQuantity - 1,
             })
           : setState({
               ...state,
               cart: state.cart.filter((items) => items.id !== payload.id),
+              totalQuantity: state.totalQuantity - 1,
             })
       );
     }
   };
 
-  const addQuantity = () => {
-    setState({ ...state, totalQuantity: state.totalQuantity++ });
-  };
-
-  const restQuantity = () => {
-    if (state.totalQuantity !== 0) {
-      setState({ ...state, totalQuantity: state.totalQuantity-- });
-    }
-  };
   return {
     addToCart,
-    addQuantity,
-    restQuantity,
     removeFromCart,
     state,
-    products,
   };
 };
 
