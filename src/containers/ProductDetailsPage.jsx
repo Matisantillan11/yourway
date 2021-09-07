@@ -49,29 +49,41 @@ const ProductDetailsPage = () => {
             <p className="product_page-title">{productSearched.name}</p>
             <p className="product_page-price">${productSearched.price}</p>
             <div className="product_page-quantity-container">
-              <p className="product_page-quantity-label">Cantidad</p>
-              <input
-                className="product_page-quantity"
-                placeholder={quantity}
-                name="quantity"
-                type="number"
-                min="1"
-                max={productSearched.stock}
-                value={quantity.quantity}
-                onChange={handleChange}
-              />
-            </div>
-          </div>
+              <div>
+                <p className="product_page-quantity-label">Cantidad</p>
+                <input
+                  className="product_page-quantity"
+                  placeholder={quantity}
+                  name="quantity"
+                  type="number"
+                  min="1"
+                  max={productSearched.stock}
+                  value={quantity.quantity}
+                  onChange={handleChange}
+                />
+              </div>
+              <div>
+                <p className="product_page-quantity-label">Talles</p>
 
-          <button
-            className="product_card-add-to-cart"
-            onClick={handleAddToCart}
-          >
-            Agregar al carrito
-          </button>
-          <button className="product_card-add-to-cart" onClick={handleBuy}>
-            Comprar
-          </button>
+                <input
+                  className="product_page-quantity"
+                  placeholder={quantity}
+                  name="quantity"
+                  type="number"
+                  min="1"
+                  max={productSearched.stock}
+                  value={quantity.quantity}
+                  onChange={handleChange}
+                />
+              </div>
+            </div>
+            <button
+              className="product_card-add-to-cart"
+              onClick={handleAddToCart}
+            >
+              Agregar al carrito
+            </button>
+          </div>
         </div>
       )}
     </>
