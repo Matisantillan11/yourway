@@ -44,12 +44,9 @@ export const WrapperCart = ({ stateCart, openCart, cart, removeFromCart }) => {
             <h3>
               Precio Total: <span>$ {handleTotal()}</span>
             </h3>
-            <button type="button">
-              <Link className="link" to="/products/checkout" onClick={openCart}>
-                {' '}
-                Continuar{' '}
-              </Link>
-            </button>
+            <Link className="link" to="/products/checkout" onClick={openCart}>
+              <button type="button">Continuar</button>
+            </Link>
           </div>
         )}
       </div>

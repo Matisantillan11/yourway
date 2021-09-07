@@ -36,6 +36,12 @@
     align-items: left;
     width: 70%;
     margin: 0.5% 15%;
+    .stock-alert {
+      font-size: 14px;
+      color: #ec655d;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
 
     .product_page-title {
       font-size: 25px;

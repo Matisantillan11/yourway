@@ -5,7 +5,7 @@
   flex-direction: column;
   justify-content: left;
   align-items: left;
-  padding: 15% 5%;
+  padding: 10% 5%;
   margin: 10% 0 0 0;
   min-height: 65vh;
   .Checkout-content {
@@ -46,21 +46,19 @@
       }
     }
     button {
-      box-shadow: inset 0px 1px 0px 0px var(--light-blue);
-      background: var(--dark-gray);
+      background: e9f6fe;
       border-radius: 6px;
       display: inline-block;
       cursor: pointer;
-      padding: 10px 24px;
-      width: 70%;
+      width: 40%;
       margin: 5% auto;
       display: block;
       outline: none;
       color: #f1f1f1;
-      .link {
-        color: var(--soft-white);
-        font-size: 15px;
-        font-weight: bold;
+      border: 1px solid #5a5858;
+      img {
+        width: 100px;
+        height: 40px;
       }
     }
   }

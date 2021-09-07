@@ -41,6 +41,11 @@ const ProductDetailsPage = () => {
           </div>
 
           <div className="product_page-information-container">
+            {productSearched.stock <= 5 && (
+              <p className="stock-alert">
+                Solo quedan {productSearched.stock} unidades!
+              </p>
+            )}
             <p className="product_page-title">{productSearched.name}</p>
             <p className="product_page-price">${productSearched.price}</p>
             <div className="product_page-quantity-container">
