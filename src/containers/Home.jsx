@@ -18,7 +18,12 @@ const Home = () => {
     <>
       {loading && <LoaderCustom />}
       <div className="home">
-        <div className="principal-banner"></div>
+        <div className="principal-banner">
+          <div className="slogan">
+            <p>Bienvenidx a nuestra tienda</p>
+            <p>Personaliza tu prenda y agregale tu propio estilo</p>
+          </div>
+        </div>
         <Products products={initialState.products} />
         <Banners />
       </div>
