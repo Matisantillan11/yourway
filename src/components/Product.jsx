@@ -9,7 +9,6 @@ import AppContext from '../context/AppContext';
 const Product = ({ product }) => {
   const history = useHistory();
   const { addToCart } = useContext(AppContext);
-
   const ToProducts = (e) => {
     e.preventDefault();
     history.push(`/products/details?${product.id}`);
@@ -35,6 +34,7 @@ const Product = ({ product }) => {
             Agregar al carrito
           </button>
         </div>
+
         <p className="stock">{product.info.stock}</p>
       </div>
     </>
