@@ -35,7 +35,7 @@ const Product = ({ product }) => {
           </button>
         </div>
 
-        <p className="stock">{product.info.stock}</p>
+        <p className="stock"> Stock {product.info.stock}</p>
       </div>
     </>
   );

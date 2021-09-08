@@ -78,12 +78,22 @@ header {
     list-style: none;
     z-index: 99;
     transition: all 0.5s ease;
-    .menu_item_link {
-      font-size: 18px;
-      display: none;
-      .link-menu {
-        text-decoration: none;
+    .menu_item-container {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+      min-height: 250px;
+      height: 50%;
+      margin: auto;
+      .menu_item_link {
+        font-size: 18px;
         display: none;
+        .link-menu {
+          text-decoration: none;
+          display: none;
+        }
       }
     }
   }
@@ -181,6 +191,7 @@ header {
         margin: 5% auto;
         display: block;
         outline: none;
+        color: var(--soft-white);
         .link {
           color: var(--soft-white);
           font-size: 15px;

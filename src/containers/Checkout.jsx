@@ -10,6 +10,7 @@ import 'firebase/auth';
 import responses from '../firebase/responses/responses.js';
 
 import { mp } from '../api/mercado-pago/mercadopago.js';
+import mpLogo from '../assets/images/mp-logo.svg';
 
 const Checkout = () => {
   const {
@@ -81,7 +82,7 @@ const Checkout = () => {
             Precio Total: <span>$ {handleTotal()}</span>
           </h3>
           <button type="button" onClick={handleSubmit}>
-            Pagar
+            <img src={mpLogo} />
           </button>
         </div>
       )}

@@ -12,22 +12,18 @@ export const MenuContainer = ({ handleMenu, state }) => {
   return (
     <>
       <ul className="menu_item" status={state} onClick={handleMenu}>
-        <li className="menu_item_link" id="logButton">
-          <p className="link-menu">Ingresar</p>
-        </li>
+        <div className="menu_item-container">
+          <li className="menu_item_link" id="logButton">
+            <p className="link-menu">Ingresar</p>
+          </li>
 
-        <CustomLink linkText="Inicio" url="/">
-          <IoHomeSharp size={20} />
-        </CustomLink>
-        <CustomLink linkText="Productos" url="/products">
-          <IoShirtSharp size={20} />
-        </CustomLink>
-        <CustomLink linkText="Nosotros" url="/">
-          <IoEarthSharp size={20} />
-        </CustomLink>
-        <CustomLink linkText="Contactános" url="/">
-          <IoCallSharp size={20} />
-        </CustomLink>
+          <CustomLink linkText="Inicio" url="/">
+            <IoHomeSharp size={20} />
+          </CustomLink>
+          <CustomLink linkText="Productos" url="/products">
+            <IoShirtSharp size={20} />
+          </CustomLink>
+        </div>
       </ul>
     </>
   );
