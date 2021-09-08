@@ -65,16 +65,15 @@ const ProductDetailsPage = () => {
               <div>
                 <p className="product_page-quantity-label">Talles</p>
 
-                <input
-                  className="product_page-quantity"
-                  placeholder={quantity}
-                  name="quantity"
-                  type="number"
-                  min="1"
-                  max={productSearched.stock}
-                  value={quantity.quantity}
-                  onChange={handleChange}
-                />
+                <select className="product_page-quantity">
+                  <option>XXS</option>
+                  <option>XS</option>
+                  <option>S</option>
+                  <option>M</option>
+                  <option>L</option>
+                  <option>XL</option>
+                  <option>XXL</option>
+                </select>
               </div>
             </div>
             <button
