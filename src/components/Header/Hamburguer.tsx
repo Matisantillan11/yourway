@@ -12,21 +12,21 @@ export const Hamburguer = () => {
       alignItems="center"
     >
       <Box
-        width={10}
+        width={8}
         height={'3px'}
         margin={1}
         backgroundColor="#7c7979"
         borderRadius="12px"
       />
       <Box
-        width={10}
+        width={8}
         height="3px"
         margin={1}
         backgroundColor="#7c7979"
         borderRadius="12px"
       />
       <Box
-        width={10}
+        width={8}
         height={'3px'}
         margin={1}
         backgroundColor="#7c7979"

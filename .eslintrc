@@ -1,4 +1,4 @@
-{
+/* {
   "extends": ["airbnb", "prettier"],
   "plugins": ["prettier"],
   "rules": {
@@ -24,3 +24,4 @@
   },
   "parser": "babel-eslint"
 }
+ */
