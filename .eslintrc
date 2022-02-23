@@ -1,27 +1,16 @@
-/* {
-  "extends": [
-    "airbnb",
-    "prettier"
-  ],
-  "plugins": [
-    "prettier"
-  ],
+{
+  "extends": ["airbnb", "prettier"],
+  "plugins": ["prettier"],
   "rules": {
     "react/jsx-filename-extension": [
       1,
       {
-        "extensions": [
-          ".js",
-          ".jsx"
-        ]
+        "extensions": [".ts", ".tsx"]
       }
     ],
     "react/prop-types": 0,
     "no-underscore-dangle": 0,
-    "import/imports-first": [
-      "error",
-      "absolute-first"
-    ],
+    "import/imports-first": ["error", "absolute-first"],
     "import/newline-after-import": "error"
   },
   "globals": {
@@ -34,4 +23,4 @@
     "navigator": true
   },
   "parser": "babel-eslint"
-} */
+}
