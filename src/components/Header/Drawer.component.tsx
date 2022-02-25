@@ -8,41 +8,62 @@ import {
   DrawerCloseButton,
   Text,
   HStack,
+  Button,
+  useDisclosure,
 } from '@chakra-ui/react'
 import { IoClose, IoHome, IoShirt } from 'react-icons/io5'
+import { LoginModalComponent } from '../Modal/LoginModal.component'
 
-export const DrawerComponent = ({ onClose, open }: any) => {
-  console.log({ open })
+export const DrawerComponent = ({ onCloseDrawer, open, ModalOpen }: any) => {
+  const { isOpen, onClose, onOpen } = useDisclosure()
   return (
-    <Drawer placement="left" onClose={onClose} isOpen={open}>
-      <DrawerOverlay />
-      <DrawerContent background="#333">
-        <DrawerHeader>
-          <IoClose size={35} color="#7C7979" onClick={onClose} />
-        </DrawerHeader>
-        <DrawerBody
-          display="flex"
-          flexDirection="column"
-          justifyContent="center"
-          alignItems="center"
-        >
-          <Text color="#f1f1f1" marginY={20}>
-            Ingresar
-          </Text>
-          <HStack>
-            <Text color="#f1f1f1" marginY={20}>
-              Inicio
-            </Text>
-            <IoHome size={20} color="#f1f1f1" />
-          </HStack>
-          <HStack>
-            <Text color="#f1f1f1" marginY={20}>
-              Productos
-            </Text>
-            <IoShirt size={20} color="#f1f1f1" />
-          </HStack>
-        </DrawerBody>
-      </DrawerContent>
-    </Drawer>
+    <>
+      <Drawer placement="left" onClose={onCloseDrawer} isOpen={open}>
+        <DrawerOverlay />
+        <DrawerContent background="#333">
+          <DrawerHeader>
+            <IoClose size={35} color="#7C7979" onClick={onCloseDrawer} />
+          </DrawerHeader>
+          <DrawerBody
+            display="flex"
+            flexDirection="column"
+            justifyContent="center"
+            alignItems="center"
+          >
+            <Button
+              onClick={onOpen}
+              background="transparent"
+              _hover={{ background: 'transparent' }}
+              marginY={20}
+            >
+              <Text color="#f1f1f1">Ingresar</Text>
+            </Button>
+            <Button
+              onClick={onOpen}
+              background="transparent"
+              _hover={{ background: 'transparent' }}
+              marginY={20}
+            >
+              <HStack>
+                <Text color="#f1f1f1">Inicio</Text>
+                <IoHome size={20} color="#f1f1f1" />
+              </HStack>
+            </Button>
+            <Button
+              onClick={onOpen}
+              background="transparent"
+              _hover={{ background: 'transparent' }}
+              marginY={20}
+            >
+              <HStack>
+                <Text color="#f1f1f1">Productos</Text>
+                <IoShirt size={20} color="#f1f1f1" />
+              </HStack>
+            </Button>
+          </DrawerBody>
+        </DrawerContent>
+      </Drawer>
+      <LoginModalComponent open={isOpen} onClose={onClose} />
+    </>
   )
 }
