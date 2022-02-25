@@ -1,6 +1,6 @@
-import { Box, Container } from '@chakra-ui/react'
+import { Box, Button, Container } from '@chakra-ui/react'
 
-export const Hamburguer = () => {
+export const Hamburguer = (onClick: any) => {
   return (
     <Container
       width="2.5%"
@@ -10,6 +10,7 @@ export const Hamburguer = () => {
       flexDirection="column"
       justifyContent="center"
       alignItems="center"
+      onClick={onClick}
     >
       <Box
         width={8}

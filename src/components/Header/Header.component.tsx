@@ -1,12 +1,18 @@
 import { Container, HStack, Image, useDisclosure } from '@chakra-ui/react'
-import { IoCart } from 'react-icons/io5'
+import { IoCart, IoMenu } from 'react-icons/io5'
 import { Hamburguer } from './Hamburguer'
 
 //images
 import logo from '../../assets/images/logo.png'
 import { LoginModalComponent } from '../Modal/LoginModal.component'
+import { DrawerComponent } from './Drawer.component'
 
 export const HeaderComponent = () => {
+  const {
+    isOpen: isOpenDrawer,
+    onOpen: onOpenDrawer,
+    onClose: onCloseDrawer,
+  } = useDisclosure()
   const { isOpen, onClose, onOpen } = useDisclosure()
 
   return (
@@ -28,13 +34,14 @@ export const HeaderComponent = () => {
         justifyContent="center"
         alignItems="center"
       >
-        <Hamburguer />
+        <IoMenu size={35} color="#7C7979" onClick={onOpenDrawer} />
 
-        <Image src={logo} width={75} height={75} onClick={() => onOpen()} />
+        <Image src={logo} width={75} height={75} onClick={onOpen} />
 
-        <IoCart size={25} />
+        <IoCart size={25} color="#7C7979" />
       </HStack>
 
+      <DrawerComponent open={isOpenDrawer} onClose={onCloseDrawer} />
       <LoginModalComponent open={isOpen} onClose={onClose} />
     </Container>
   )
