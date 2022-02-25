@@ -1,11 +1,14 @@
-import { Container, HStack, Image } from '@chakra-ui/react'
+import { Container, HStack, Image, useDisclosure } from '@chakra-ui/react'
 import { IoCart } from 'react-icons/io5'
 import { Hamburguer } from './Hamburguer'
 
 //images
 import logo from '../../assets/images/logo.png'
+import { LoginModalComponent } from '../Modal/LoginModal.component'
 
 export const HeaderComponent = () => {
+  const { isOpen, onClose, onOpen } = useDisclosure()
+
   return (
     <Container
       minWidth="100vw"
@@ -27,10 +30,12 @@ export const HeaderComponent = () => {
       >
         <Hamburguer />
 
-        <Image src={logo} width={75} height={75} />
+        <Image src={logo} width={75} height={75} onClick={() => onOpen()} />
 
         <IoCart size={25} />
       </HStack>
+
+      <LoginModalComponent open={isOpen} onClose={onClose} />
     </Container>
   )
 }
