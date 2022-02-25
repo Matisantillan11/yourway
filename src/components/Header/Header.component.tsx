@@ -25,6 +25,7 @@ export const HeaderComponent = () => {
       justifyContent="center"
       alignItems="center"
       backgroundColor="#f1f1f1"
+      zIndex={9}
     >
       <HStack
         spacing={'auto'}
