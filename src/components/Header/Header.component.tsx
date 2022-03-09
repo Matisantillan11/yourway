@@ -5,6 +5,7 @@ import { IoCart, IoMenu } from 'react-icons/io5'
 import logo from '../../assets/images/logo.png'
 import { DrawerComponent } from './Drawer.component'
 import { CartDrawerComponent } from './CartDrawer.component'
+import { DrawerController } from '../../controllers/Header/Drawer.controller'
 export const HeaderComponent = () => {
   const {
     isOpen: isOpenDrawer,
@@ -44,7 +45,7 @@ export const HeaderComponent = () => {
         <IoCart size={25} color="#7C7979" onClick={onOpenCartDrawer} />
       </HStack>
 
-      <DrawerComponent open={isOpenDrawer} onCloseDrawer={onCloseDrawer} />
+      <DrawerController isOpen={isOpenDrawer} onCloseDrawer={onCloseDrawer} />
       <CartDrawerComponent
         open={isOpenCartDrawer}
         onClose={onCloseCartDrawer}

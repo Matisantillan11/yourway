@@ -1,24 +1,36 @@
 import {
   Drawer,
   DrawerBody,
-  DrawerFooter,
   DrawerHeader,
   DrawerOverlay,
   DrawerContent,
-  DrawerCloseButton,
   Text,
   HStack,
   Button,
   useDisclosure,
+  VStack,
+  Avatar,
 } from '@chakra-ui/react'
 import { IoClose, IoHome, IoShirt } from 'react-icons/io5'
-import { LoginModalComponent } from '../Modal/LoginModal.component'
+import { LoginModalController } from '../../controllers/Modal/LoginModal.controller'
 
-export const DrawerComponent = ({ onCloseDrawer, open, ModalOpen }: any) => {
+export const DrawerComponent = ({
+  onCloseDrawer,
+  isOpenDrawer,
+  user,
+  closeSession,
+  ModalOpen,
+}: any) => {
   const { isOpen, onClose, onOpen } = useDisclosure()
+
+  const openModal = () => {
+    onCloseDrawer()
+    onOpen()
+  }
+
   return (
     <>
-      <Drawer placement="left" onClose={onCloseDrawer} isOpen={open}>
+      <Drawer placement="left" onClose={onCloseDrawer} isOpen={isOpenDrawer}>
         <DrawerOverlay />
         <DrawerContent background="#333">
           <DrawerHeader>
@@ -30,13 +42,24 @@ export const DrawerComponent = ({ onCloseDrawer, open, ModalOpen }: any) => {
             justifyContent="center"
             alignItems="center"
           >
+            <VStack position="absolute" top="55px" marginBottom="175px">
+              <Avatar
+                width="100px"
+                height="100px"
+                src="https://bit.ly/broken-link"
+              />
+              <Text color="white">{user.name + ' ' + user.lastname}</Text>
+            </VStack>
+
             <Button
-              onClick={onOpen}
+              onClick={user ? closeSession : openModal}
               background="transparent"
               _hover={{ background: 'transparent' }}
               marginY={20}
             >
-              <Text color="#f1f1f1">Ingresar</Text>
+              <Text color="#f1f1f1">
+                {user !== null ? 'Cerrar Sesión' : 'Ingresar'}
+              </Text>
             </Button>
             <Button
               onClick={onOpen}
@@ -63,7 +86,7 @@ export const DrawerComponent = ({ onCloseDrawer, open, ModalOpen }: any) => {
           </DrawerBody>
         </DrawerContent>
       </Drawer>
-      <LoginModalComponent open={isOpen} onClose={onClose} />
+      <LoginModalController isOpen={isOpen} onClose={onClose} />
     </>
   )
 }
