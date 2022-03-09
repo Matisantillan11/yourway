@@ -14,19 +14,19 @@ import {
   Spinner,
   Alert,
   AlertIcon,
-  AlertTitle,
   AlertDescription,
   InputGroup,
   InputRightElement,
   FormErrorMessage,
 } from '@chakra-ui/react'
 import { useState } from 'react'
-import { IoCloudDone, IoEye, IoEyeOff } from 'react-icons/io5'
+import { IoEye, IoEyeOff } from 'react-icons/io5'
 import logo from '../../assets/images/logo.png'
 
 //interfaces
 import { LoginReducer } from '../../interfaces/reducers.interfaces'
 import { useValidateForm } from '../../hooks/useValidateForm'
+import State from '../../store/reducers/interface.reducer'
 
 export interface LoginModalProps {
   login: (email: string, password: string) => void
@@ -35,7 +35,7 @@ export interface LoginModalProps {
   setEmail: any
   password: string
   setPassword: any
-  loginReducer: LoginReducer
+  loginReducer: State
   isOpen: boolean
   onClose: any
   clearAllFields: () => void

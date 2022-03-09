@@ -42,14 +42,16 @@ export const DrawerComponent = ({
             justifyContent="center"
             alignItems="center"
           >
-            <VStack position="absolute" top="55px" marginBottom="175px">
-              <Avatar
-                width="100px"
-                height="100px"
-                src="https://bit.ly/broken-link"
-              />
-              <Text color="white">{user.name + ' ' + user.lastname}</Text>
-            </VStack>
+            {user && (
+              <VStack position="absolute" top="55px" marginBottom="175px">
+                <Avatar
+                  width="100px"
+                  height="100px"
+                  src="https://bit.ly/broken-link"
+                />
+                <Text color="white">{user.name + ' ' + user.lastname}</Text>
+              </VStack>
+            )}
 
             <Button
               onClick={user ? closeSession : openModal}

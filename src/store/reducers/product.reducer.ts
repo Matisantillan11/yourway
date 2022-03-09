@@ -1,4 +1,3 @@
-import { useUserInformation } from '../../hooks/useUserInformation'
 import State from './interface.reducer'
 const initalState: State = {
   status: 0,
@@ -11,11 +10,11 @@ const initalState: State = {
 
 export type userAction =
   | { type: 'REINTENTAR' }
-  | { type: 'GET_LOGIN_PENDING' }
-  | { type: 'GET_LOGIN_REJECTED'; payload: any }
-  | { type: 'GET_LOGIN_FULFILLED'; payload: any }
+  | { type: 'GET_PRODUCT_PENDING' }
+  | { type: 'GET_PRODUCT_REJECTED'; payload: any }
+  | { type: 'GET_PRODUCT_FULFILLED'; payload: any }
 
-const loginReducer = (state = initalState, action: any) => {
+const productReducer = (state = initalState, action: userAction) => {
   switch (action.type) {
     case 'REINTENTAR':
       return {
@@ -26,12 +25,12 @@ const loginReducer = (state = initalState, action: any) => {
         fetched: false,
         error: null,
       }
-    case 'GET_LOGIN_PENDING':
+    case 'GET_PRODUCT_PENDING':
       return {
         ...state,
         fetching: true,
       }
-    case 'GET_LOGIN_REJECTED':
+    case 'GET_PRODUCT_REJECTED':
       return {
         ...state,
         fetching: false,
@@ -41,17 +40,10 @@ const loginReducer = (state = initalState, action: any) => {
         status: action.payload.response.data.status,
         data: {},
       }
-    case 'GET_LOGIN_FULFILLED':
+    case 'GET_PRODUCT_FULFILLED':
       let message = action.payload.data.message
-      let user = action.payload.data.result.user
-      let token = action.payload.data.result.token
+      let result = action.payload.data.result
       let status = action.payload.data.status
-
-      const { saveUser } = useUserInformation()
-
-      if (status === 200) {
-        saveUser(user, token)
-      }
 
       return {
         ...state,
@@ -60,11 +52,11 @@ const loginReducer = (state = initalState, action: any) => {
         error: false,
         message: message,
         status: status,
-        data: { user, token },
+        data: result,
       }
     default:
       return state
   }
 }
 
-export default loginReducer
+export default productReducer
