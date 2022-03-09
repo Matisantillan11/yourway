@@ -52,6 +52,7 @@ export const ItemCardComponent = ({
 
       <HStack>
         <Button
+          border="2px solid #3866a3"
           disabled={quantitySelected > 1 ? false : true}
           onClick={substractQuantity}
         >
@@ -67,6 +68,7 @@ export const ItemCardComponent = ({
           textAlign="center"
         />
         <Button
+          border="2px solid #3866a3"
           disabled={quantitySelected < stock ? false : true}
           onClick={addQuantity}
         >
@@ -74,7 +76,29 @@ export const ItemCardComponent = ({
         </Button>
       </HStack>
 
-      <Button marginY={5} w={180}>
+      <Button
+        border="2px solid #3866a3"
+        _hover={{
+          color: '#f1f1f1',
+          right: 0,
+          backgroundColor: '#3866a3',
+        }}
+        _before={{
+          zIndex: -1,
+          content: "''",
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          bottom: 0,
+          right: '100%',
+          background: '#3866a3',
+          color: '#f1f1f1',
+          transition: '0.3s ease-in',
+        }}
+        marginY={5}
+        paddingY={2.5}
+        w={180}
+      >
         Agregar al carrito
       </Button>
     </Box>
