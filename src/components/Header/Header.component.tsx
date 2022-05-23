@@ -20,7 +20,7 @@ export const HeaderComponent = () => {
 
   return (
     <Container
-      minWidth="100vw"
+      maxWidth="100vw"
       minHeight="10vh"
       position="fixed"
       display="flex"

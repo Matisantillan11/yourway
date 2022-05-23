@@ -13,6 +13,8 @@ export const HomeController = () => {
   const dispatch = useDispatch()
   const productReducer = useSelector((store: StoreType) => store.productReducer)
 
+  useEffect(() => window.scrollTo(0,0), [])
+
   useEffect(() => {
     dispatch(productAction.getAll())
   }, [dispatch])

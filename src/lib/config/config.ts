@@ -3,5 +3,5 @@ export const config: {
   url: string
 } = {
   database: process.env.DB || 'yourway',
-  url: process.env.API_URL || 'http://localhost:3001',
+  url: process.env.API_URL || 'http://localhost:3040',
 }

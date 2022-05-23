@@ -16,6 +16,7 @@ export interface ItemCardProps {
   quantitySelected: number
   addQuantity: () => void
   substractQuantity: () => void
+  redirectToDetails: () => void
 }
 
 export const ItemCardComponent = ({
@@ -26,6 +27,7 @@ export const ItemCardComponent = ({
   quantitySelected,
   addQuantity,
   substractQuantity,
+  redirectToDetails
 }: ItemCardProps) => {
   return (
     <Box
@@ -41,7 +43,7 @@ export const ItemCardComponent = ({
       margin={5}
       borderRadius={13.8}
     >
-      <Container width={340} height={240} margin={0}>
+      <Container width={340} height={240} margin={0} onClick={redirectToDetails}>
         <Image margin={0} width={340} height={240} src={pic} />
       </Container>
 

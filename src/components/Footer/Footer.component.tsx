@@ -28,7 +28,7 @@ export const FooterComponent = () => {
         </Container>
 
         <Text color="#F1F1F1" fontSize={12} position="absolute" bottom={5}>
-          Development by @matisantillan11. Copyright © 2021
+          In develop by @matisantillan11. Copyright © 2021
         </Text>
       </VStack>
     </Container>

@@ -11,6 +11,7 @@ export const BannerHome = () => {
       backgroundImage={bannerHome}
       backgroundPosition="center"
       backgroundRepeat="no-repeat"
+      margin={0}
     >
       <VStack
         justify="flex-start"
