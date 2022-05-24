@@ -7,19 +7,23 @@ import {
   Input,
   Text,
 } from '@chakra-ui/react'
+import { Product } from '../../interfaces/interfaces'
 
 export interface ItemCardProps {
   title: string
   stock: number
   pic: string
   price: number
+  id: string
   quantitySelected: number
   addQuantity: () => void
   substractQuantity: () => void
   redirectToDetails: () => void
+  addToCart: (payload: any, quantity: number) => void
 }
 
 export const ItemCardComponent = ({
+  id,
   title,
   pic,
   stock,
@@ -27,7 +31,8 @@ export const ItemCardComponent = ({
   quantitySelected,
   addQuantity,
   substractQuantity,
-  redirectToDetails
+  redirectToDetails,
+  addToCart
 }: ItemCardProps) => {
   return (
     <Box
@@ -100,6 +105,14 @@ export const ItemCardComponent = ({
         marginY={5}
         paddingY={2.5}
         w={180}
+        onClick={() => addToCart({  
+          _id: id,
+          title,
+          pic,
+          stock,
+          price 
+        },
+        quantitySelected)}
       >
         Agregar al carrito
       </Button>

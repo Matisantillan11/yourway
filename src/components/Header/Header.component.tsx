@@ -1,4 +1,4 @@
-import { Container, HStack, Image, useDisclosure } from '@chakra-ui/react'
+import { Container, HStack, Image, Text, useDisclosure } from '@chakra-ui/react'
 import { IoCart, IoMenu } from 'react-icons/io5'
 
 //images
@@ -6,7 +6,7 @@ import logo from '../../assets/images/logo.png'
 import { DrawerComponent } from './Drawer.component'
 import { CartDrawerComponent } from './CartDrawer.component'
 import { DrawerController } from '../../controllers/Header/Drawer.controller'
-export const HeaderComponent = () => {
+export const HeaderComponent = (total: any) => {
   const {
     isOpen: isOpenDrawer,
     onOpen: onOpenDrawer,
@@ -41,8 +41,10 @@ export const HeaderComponent = () => {
         <IoMenu size={35} color="#7C7979" onClick={onOpenDrawer} />
 
         <Image src={logo} width={75} height={75} />
-
-        <IoCart size={25} color="#7C7979" onClick={onOpenCartDrawer} />
+        <Container w={65} h={55} display="flex" flexDir="column" alignItems="flex-start" textAlign="right">
+          <Text alignSelf="flex-end">{ total.total}</Text>
+          <IoCart size={25} color="#7C7979" onClick={onOpenCartDrawer} />
+        </Container>
       </HStack>
 
       <DrawerController isOpen={isOpenDrawer} onCloseDrawer={onCloseDrawer} />
