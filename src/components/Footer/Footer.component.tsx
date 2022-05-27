@@ -1,4 +1,5 @@
 import { Container, Image, Text, VStack } from '@chakra-ui/react'
+import { Link } from 'react-router-dom'
 //images
 import logo from '../../assets/images/logo.png'
 export const FooterComponent = () => {
@@ -13,9 +14,11 @@ export const FooterComponent = () => {
           justifyContent="center"
           alignItems="center"
         >
-          <Text color="#f1f1f1" marginY={2} textAlign="center">
-            Inicio
-          </Text>
+          <Link to="/">
+            <Text color="#f1f1f1" marginY={2} textAlign="center">
+              Inicio
+            </Text>
+          </Link>
           <Text color="#f1f1f1" marginY={2} textAlign="center">
             Productos
           </Text>

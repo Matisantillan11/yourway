@@ -12,6 +12,7 @@ import {
   Avatar,
 } from '@chakra-ui/react'
 import { IoClose, IoHome, IoShirt } from 'react-icons/io5'
+import { Link } from 'react-router-dom'
 import { LoginModalController } from '../../controllers/Modal/LoginModal.controller'
 
 export const DrawerComponent = ({
@@ -69,10 +70,12 @@ export const DrawerComponent = ({
               _hover={{ background: 'transparent' }}
               marginY={20}
             >
-              <HStack>
-                <Text color="#f1f1f1">Inicio</Text>
-                <IoHome size={20} color="#f1f1f1" />
-              </HStack>
+              <Link to="/">
+                <HStack>
+                  <Text color="#f1f1f1">Inicio</Text>
+                  <IoHome size={20} color="#f1f1f1" />
+                </HStack>
+              </Link>
             </Button>
             <Button
               onClick={onOpen}

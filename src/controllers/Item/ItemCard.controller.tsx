@@ -30,9 +30,6 @@ export const ItemCardController = (props: {
   }
 
 
-
-
-
   return (
     <ItemCardComponent
       {...props}

@@ -7,6 +7,7 @@ import { DrawerComponent } from './Drawer.component'
 import { CartDrawerComponent } from './CartDrawer.component'
 import { DrawerController } from '../../controllers/Header/Drawer.controller'
 import { CartDrawerController } from '../../controllers/Header/CartDrawer.controller'
+import { Link } from 'react-router-dom'
 export const HeaderComponent = (total: any) => {
   const {
     isOpen: isOpenDrawer,
@@ -41,7 +42,9 @@ export const HeaderComponent = (total: any) => {
       >
         <IoMenu size={35} color="#7C7979" onClick={onOpenDrawer} />
 
-        <Image src={logo} width={75} height={75} />
+        <Link to="/">
+          <Image src={logo} width={75} height={75} />
+        </Link>
         <Container w={65} h={55} display="flex" flexDir="column" alignItems="flex-start" textAlign="right">
           <Text alignSelf="flex-end">{ total.total}</Text>
           <IoCart size={25} color="#7C7979" onClick={onOpenCartDrawer} />

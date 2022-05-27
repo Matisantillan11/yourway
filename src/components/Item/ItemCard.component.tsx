@@ -71,12 +71,12 @@ export const ItemCardComponent = ({
           -
         </Button>
         <Input
+          readOnly
           type="number"
           width={20}
           max={stock}
           min={1}
           value={quantitySelected}
-          defaultValue={1}
           textAlign="center"
         />
         <Button
