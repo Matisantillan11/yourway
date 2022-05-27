@@ -1,3 +1,4 @@
+import { Suspense, lazy } from 'react'
 import {
   Box,
   Button,
@@ -5,10 +6,12 @@ import {
   HStack,
   Image,
   Input,
+  Spinner,
   Text,
 } from '@chakra-ui/react'
 import { Product } from '../../interfaces/interfaces'
 
+const ImageCart = lazy(() => import('./ImageCart.component'))
 export interface ItemCardProps {
   title: string
   stock: number
@@ -21,6 +24,8 @@ export interface ItemCardProps {
   redirectToDetails: () => void
   addToCart: (payload: any, quantity: number) => void
 }
+
+
 
 export const ItemCardComponent = ({
   id,
@@ -48,9 +53,9 @@ export const ItemCardComponent = ({
       margin={5}
       borderRadius={13.8}
     >
-      <Container width={340} height={240} margin={0} onClick={redirectToDetails}>
-        <Image margin={0} width={340} height={240} src={pic} loading="lazy" />
-      </Container>
+      <Suspense fallback={<Spinner size="lg"/>}>
+        <ImageCart redirectToDetails={redirectToDetails} pic={pic} />
+      </Suspense>
 
       <Text textAlign="center" fontWeight="bold">
         {title}

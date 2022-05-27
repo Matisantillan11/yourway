@@ -2,9 +2,8 @@ import { Container, Spinner, Text } from '@chakra-ui/react'
 import { ItemCardController } from '../../controllers/Item/ItemCard.controller'
 import { BannerHome } from './BannerHome'
 import { Product } from '../../interfaces/interfaces'
-import productReducer from '../../store/reducers/product.reducer'
 import State from '../../store/reducers/interface.reducer'
-import { Link } from 'react-router-dom'
+
 
 export interface HomeProps {
   productList: Product[]
