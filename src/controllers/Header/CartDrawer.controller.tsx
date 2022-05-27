@@ -9,7 +9,7 @@ export interface CartDrawerProps {
   onClose: any
 }
 export const CartDrawerController = ({ open, onClose }: CartDrawerProps) => {
-  const { state, removeFromCart } = useContext(AppContext)
+  const { state, removeFromCart, clearCart } = useContext(AppContext)
   
   useEffect(() => {
     if(state.cart) localStorage.setItem('cart', JSON.stringify(state.cart))
@@ -28,9 +28,13 @@ export const CartDrawerController = ({ open, onClose }: CartDrawerProps) => {
     removeFromCart(id)
   }
 
+  const deleteCart = () => {
+    localStorage.removeItem('cart')
+    clearCart()
+  }
   const totalPrice = useCurrencyFormater(state.totalPrice)
 
   return (
-    <CartDrawerComponent open={open} onClose={onClose} cart={cart} onDelete={onDelete} totalPrice={totalPrice} />
+    <CartDrawerComponent open={open} onClose={onClose} cart={cart} onDelete={onDelete} deleteCart={deleteCart} totalPrice={totalPrice}  />
   )
 }

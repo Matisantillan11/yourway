@@ -5,6 +5,7 @@ import { GlobalState } from './globalReducer';
 type GlobalContextProps = {
   addToCart: (payload: Product, quantity: number) => void,
   removeFromCart: (id: string) => void,
+  clearCart: () => void,
   state: GlobalState,
 };
 

@@ -52,7 +52,6 @@ const useInitialState = () => {
   const addToCart = (payload: Product,  quantity:number) => {
     const id = payload._id
     if (verifyIsInCart(id)) {
-      console.log('exist')
       return state.cart.map((cartItem: CartItemContext) => cartItem.product._id === id ? updateQuantity(cartItem, quantity, false) : cartItem);
     }
 
@@ -60,7 +59,7 @@ const useInitialState = () => {
       ...state,
       cart: [...state.cart, { product: payload, id, quantity }],
       total: state.total + quantity,
-      totalPrice: state.totalPrice + (payload.price * 1)
+      totalPrice: state.totalPrice + (payload.price * quantity)
     });
   };
 
@@ -80,11 +79,20 @@ const useInitialState = () => {
     }
   };
 
+  const clearCart = () => {
+    setState({
+      cart: [],
+      total: 0,
+      totalPrice: 0
+    })
+  }
+
   
 
   return {
     addToCart,
     removeFromCart,
+    clearCart,
     state,
   };
 };

@@ -2,7 +2,6 @@ import { useContext, useState } from 'react'
 import { useNavigate } from 'react-router'
 import {
   ItemCardComponent,
-  ItemCardProps,
 } from '../../components/Item/ItemCard.component'
 import { AppContext } from '../../context/globalContext'
 
@@ -14,7 +13,7 @@ export const ItemCardController = (props: {
   id: string
 }) => {
   const [quantitySelected, setQuantitySelected] = useState(1)
-  const { state, addToCart, removeFromCart } = useContext(AppContext)
+  const { addToCart } = useContext(AppContext)
 
   const addQuantity = () => {
     setQuantitySelected(quantitySelected + 1)
