@@ -12,13 +12,32 @@ const useInitialState = () => {
     return state.cart.find((cartItem: CartItemContext) => cartItem.product._id === idItem)
   }
 
-  const extractItems = (itemsCart: CartItemContext[], diffItem: CartItemContext) => {
-    return itemsCart.filter((item: CartItemContext) => item.id !== diffItem.id)
+  const extractItems = (itemsCart: CartItemContext[], diffItem?: CartItemContext, id?:string) => {
+    if(id) return itemsCart.filter((item:CartItemContext) => item.id === id)
+    return itemsCart.filter((item: CartItemContext) => item.id !== diffItem?.id)
+  }
+
+  const calculateTotal = (cartItem: CartItemContext, substract: boolean): any => {
+   /*  if(substract) return cartItem?.product.price */
+    state.cart.map((item) =>{
+      if(substract) {
+        setState({
+          ...state,
+          totalPrice: state.totalPrice - item.product.price * item.quantity
+        })
+      }else{
+        setState({
+          ...state,
+          totalPrice: state.totalPrice + (item.product.price * item.quantity)
+        })
+      }
+    })
   }
 
   const updateQuantity = (cartItem: CartItemContext, quantity: number, substract: boolean) => {
     const extractedItems = extractItems(state.cart, cartItem)
     if(substract){
+      
       setState({
         ...state,
         cart: [
@@ -29,6 +48,7 @@ const useInitialState = () => {
           },
         ],
         total: state.total - 1,
+        totalPrice: state.totalPrice - (cartItem.product.price * 1)
       })
     } else {
       setState({
@@ -41,6 +61,7 @@ const useInitialState = () => {
           },
         ],
         total: state.total + quantity,
+        totalPrice: state.totalPrice + (cartItem.product.price * quantity)
       })
     }
   }
@@ -56,23 +77,27 @@ const useInitialState = () => {
       ...state,
       cart: [...state.cart, { product: payload, id, quantity }],
       total: state.total + quantity,
+      totalPrice: state.totalPrice + (payload.price * 1)
     });
   };
 
-  const removeFromCart = (payload: Product) => {
-    const id: string = payload._id
+  const removeFromCart = (id: string) => {
+    const extractedItems:CartItemContext[] = extractItems(state.cart, undefined, id)
     if (verifyIsInCart(id)) {
-      return state.cart.map((cartItem: any) =>
+      return extractedItems?.map((cartItem: any) =>
       cartItem.id === id && cartItem.quantity > 1
           ? updateQuantity(cartItem, cartItem.quantity, true)
           : setState({
             ...state,
-            cart: state.cart.filter((items) => items.id !== payload._id),
+            cart: state.cart.filter((items) => items.id !== id),
             total: state.total - 1,
+            totalPrice: state.totalPrice - (extractedItems[0].product.price * 1)
           })
       );
     }
   };
+
+  
 
   return {
     addToCart,

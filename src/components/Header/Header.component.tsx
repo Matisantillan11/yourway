@@ -6,6 +6,7 @@ import logo from '../../assets/images/logo.png'
 import { DrawerComponent } from './Drawer.component'
 import { CartDrawerComponent } from './CartDrawer.component'
 import { DrawerController } from '../../controllers/Header/Drawer.controller'
+import { CartDrawerController } from '../../controllers/Header/CartDrawer.controller'
 export const HeaderComponent = (total: any) => {
   const {
     isOpen: isOpenDrawer,
@@ -48,7 +49,7 @@ export const HeaderComponent = (total: any) => {
       </HStack>
 
       <DrawerController isOpen={isOpenDrawer} onCloseDrawer={onCloseDrawer} />
-      <CartDrawerComponent
+      <CartDrawerController
         open={isOpenCartDrawer}
         onClose={onCloseCartDrawer}
       />

@@ -49,7 +49,7 @@ export const ItemCardComponent = ({
       borderRadius={13.8}
     >
       <Container width={340} height={240} margin={0} onClick={redirectToDetails}>
-        <Image margin={0} width={340} height={240} src={pic} />
+        <Image margin={0} width={340} height={240} src={pic} loading="lazy" />
       </Container>
 
       <Text textAlign="center" fontWeight="bold">
