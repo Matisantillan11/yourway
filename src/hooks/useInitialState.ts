@@ -17,23 +17,6 @@ const useInitialState = () => {
     return itemsCart.filter((item: CartItemContext) => item.id !== diffItem?.id)
   }
 
-  const calculateTotal = (cartItem: CartItemContext, substract: boolean): any => {
-   /*  if(substract) return cartItem?.product.price */
-    state.cart.map((item) =>{
-      if(substract) {
-        setState({
-          ...state,
-          totalPrice: state.totalPrice - item.product.price * item.quantity
-        })
-      }else{
-        setState({
-          ...state,
-          totalPrice: state.totalPrice + (item.product.price * item.quantity)
-        })
-      }
-    })
-  }
-
   const updateQuantity = (cartItem: CartItemContext, quantity: number, substract: boolean) => {
     const extractedItems = extractItems(state.cart, cartItem)
     if(substract){
