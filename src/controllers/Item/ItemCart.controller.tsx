@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import { ItemCartComponent } from '../../components/Item/ItemCart.component'
+import { ItemCartComponent, ItemCartProps } from '../../components/Item/ItemCart.component'
 
-export const ItemCartController = () => {
+export const ItemCartController = (props: ItemCartProps) => {
   const [quantitySelected, setQuantitySelected] = useState(1)
 
   const addQuantity = () => {
@@ -14,9 +14,7 @@ export const ItemCartController = () => {
 
   return (
     <ItemCartComponent
-      quantitySelected={quantitySelected}
-      addQuantity={addQuantity}
-      substractQuantity={substractQuantity}
+      { ...props}
     />
   )
 }

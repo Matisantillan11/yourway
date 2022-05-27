@@ -112,7 +112,7 @@ export const ItemCardComponent = ({
         w={180}
         onClick={() => addToCart({  
           _id: id,
-          title,
+          name: title,
           pic,
           stock,
           price 

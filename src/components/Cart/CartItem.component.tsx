@@ -33,7 +33,7 @@ export const CartItemComponent = ({
         />
 
         <Text>{title}</Text>
-        <Text> {quantity && `X${quantity}`} </Text>
+        <Text> {quantity && `(${quantity})`} </Text>
 
         <HStack position="absolute" right={10} w={100}>
           <Text fontWeight="bold">{convertedPrice}</Text>

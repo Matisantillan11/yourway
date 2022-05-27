@@ -14,9 +14,12 @@ import {
   textDecoration,
 } from '@chakra-ui/react'
 import { IoClose, IoHome, IoShirt, IoTrash } from 'react-icons/io5'
+import { useNavigate } from 'react-router'
 import { CartItemComponent } from '../Cart/CartItem.component'
 
 export const CartDrawerComponent = ({ onClose, open, cart, onDelete, deleteCart, totalPrice }: any) => {
+  const navigate = useNavigate()
+
   return (
     <Drawer placement="right" onClose={onClose} isOpen={open}>
       <DrawerContent
@@ -55,7 +58,7 @@ export const CartDrawerComponent = ({ onClose, open, cart, onDelete, deleteCart,
               id={cartItem.id}
               key={cartItem.id}
               image={cartItem.product.pic}
-              title={cartItem.product.title}
+              title={cartItem.product.name}
               quantity={cartItem.quantity}
               price={cartItem.product.price}
             />) : (<Text>No agregaste productos al carrito.</Text>)
@@ -77,7 +80,7 @@ export const CartDrawerComponent = ({ onClose, open, cart, onDelete, deleteCart,
             color="white"
             marginX="auto"
             width="60%"
-            marginY={5}
+            marginY={5} onClick={() => navigate('/checkout')}
           >
             Continuar
           </Button>
