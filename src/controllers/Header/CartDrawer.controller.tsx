@@ -10,9 +10,11 @@ export interface CartDrawerProps {
 }
 export const CartDrawerController = ({ open, onClose }: CartDrawerProps) => {
   const { state, removeFromCart, clearCart } = useContext(AppContext)
-  
+  const persistedCart: any = localStorage.getItem('cart')
+  const parsedCart: CartItemContext[] = JSON.parse(persistedCart)
+
   useEffect(() => {
-    if(state.cart) localStorage.setItem('cart', JSON.stringify(state.cart))
+    if(state.cart.length) localStorage.setItem('cart', JSON.stringify(state.cart))
   }, [state])
 
   const cart = useMemo(() => {
@@ -21,8 +23,14 @@ export const CartDrawerController = ({ open, onClose }: CartDrawerProps) => {
       if(secondCar.quantity < firstCart.quantity) return -1
       return 0
     })
+
+    
+    if(state.cart.length === 0 && parsedCart.length > 0){
+      return parsedCart
+    }
+
     return []
-  }, [state.cart])
+  }, [state.cart, localStorage.getItem('cart')])
 
   const onDelete = (id: string) => {
     removeFromCart(id)
@@ -32,9 +40,22 @@ export const CartDrawerController = ({ open, onClose }: CartDrawerProps) => {
     localStorage.removeItem('cart')
     clearCart()
   }
-  const totalPrice = useCurrencyFormater(state.totalPrice)
+  const calculateTotalPrice = () => {
+    let totalPrice: number = 0
+    if(state.cart.length === 0 && parsedCart.length > 0){
+      parsedCart.map((itemCart: CartItemContext) => totalPrice = totalPrice + (itemCart.quantity * itemCart.product.price))[0]
+    }
+
+    if(state.cart.length) totalPrice = state.totalPrice
+
+    if(totalPrice !== undefined) return totalPrice
+    return 0
+  }
+
+  const totalPrice = calculateTotalPrice()
+  const finalPrice = useCurrencyFormater(totalPrice)
 
   return (
-    <CartDrawerComponent open={open} onClose={onClose} cart={cart} onDelete={onDelete} deleteCart={deleteCart} totalPrice={totalPrice}  />
+    <CartDrawerComponent open={open} onClose={onClose} cart={cart} onDelete={onDelete} deleteCart={deleteCart} totalPrice={finalPrice}  />
   )
 }

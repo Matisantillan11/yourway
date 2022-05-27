@@ -79,6 +79,9 @@ const useInitialState = () => {
     }
   };
 
+  const refreshCart = (state: GlobalState) => {
+    setState(state)
+  }
   const clearCart = () => {
     setState({
       cart: [],
@@ -93,6 +96,7 @@ const useInitialState = () => {
     addToCart,
     removeFromCart,
     clearCart,
+    refreshCart,
     state,
   };
 };

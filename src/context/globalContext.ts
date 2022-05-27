@@ -6,6 +6,7 @@ type GlobalContextProps = {
   addToCart: (payload: Product, quantity: number) => void,
   removeFromCart: (id: string) => void,
   clearCart: () => void,
+  refreshCart: (state: GlobalState) => void
   state: GlobalState,
 };
 

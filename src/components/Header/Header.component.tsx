@@ -46,7 +46,7 @@ export const HeaderComponent = (total: any) => {
           <Image src={logo} width={75} height={75} />
         </Link>
         <Container w={65} h={55} display="flex" flexDir="column" alignItems="flex-start" textAlign="right">
-          <Text alignSelf="flex-end">{ total.total}</Text>
+          <Text alignSelf="flex-end">{ total.total }</Text>
           <IoCart size={25} color="#7C7979" onClick={onOpenCartDrawer} />
         </Container>
       </HStack>
